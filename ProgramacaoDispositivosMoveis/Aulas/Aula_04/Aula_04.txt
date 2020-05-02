@@ -1,0 +1,96 @@
+1. ScrollView
+	Permite que barras de rolagens sejam apresentadas automaticamente, caso sejam 
+	necessárias para exibição de todos os componentes na mesma tela, inseridas 
+	automaticamente quando a View ultrapassar o tamanho da tela física.
+	
+	1.1 ScrollView -> Somente vertical
+	1.2 HorizontalScrollView -> Horizontal
+	
+	Deve-se inserir dentro do ScrollView um ViewGroup que será responsável por conter 
+	todos os demais componentes.
+	
+	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical">
+
+        <HorizontalScrollView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="50dp">
+
+            <LinearLayout								-> [Apenas precisamos nos lembrar que esta classe somente pode possuir um 	
+                android:layout_width="wrap_content"			componente-filho]
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+			</LinearLayout>
+		</HorizontalScrollView>
+	</LinearLayout>
+	
+2. Gerenciadores de Layouts aninhados
+	É é possível implementar telas muito mais elaboradas apenas combinando as 
+	características de cada tipo de gerenciador de layouts.
+	
+	Podemos incluir um layout dentro de outro.
+
+3.  ListView
+	Normalmente, é utilizado quando precisamos exibir uma grande quantidade de dados na 
+	forma de lista, que pode possuir rolagem (scroll).
+	
+	3.1 Adiciona o componente no .xml
+		<ListView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content">
+		</ListView>
+		
+	3.2 Implementa na classe java (Activity respectiva) os itens que serão exibidos na lista.
+		public class ListViewActivity extends AppCompatActivity {
+
+			ListView minhaListView;               
+			ArrayAdapter<String> arrayAdapter;		
+
+			String [] servicos ={"Manicure", "Depilação", "Cabeleiriro"}; (2) Dados que aparecerão tela
+
+			@Override
+			protected void onCreate(Bundle savedInstanceState) {
+				super.onCreate(savedInstanceState);
+				setContentView(R.layout.listview);
+
+				minhaListView =  (ListView) findViewById(R.id.listview);  (1) Atributo que representa a nossa listview (.xml)
+				
+				arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, servicos); (3) Instanciamos a classe ArrayAdapter,
+																												passando:
+																												3.1 [context] O contexto atual
+																												*3.2 [resource] O id para o arquivo de layout 
+																												que contém o layout a ser usado quando 
+																												instanciaciarmos uma view.																		uma view.
+																												*3.3 [textViewResourceid] O id para o textView
+																												do layout a ser populado
+																												3.4 [objects] Objetos a serem representados na
+																												listview																							
+				minhaListView.setAdapter(arrayAdapter);
+
+			}
+		}
+
+	
+	OU ENTÃO:
+	
+	3.2.1 public class ListViewActivity extends ListActivity{}
+		
+		arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, servicos);
+		setListAdapter(arrayAdapter);
+		
+		Observe que não efetuamos a vinculação da nossa ListView através do método findViewById 
+		[minhaListView =  (ListView) findViewById(R.id.listview)]
+
+		Na verdade, isso geraria um erro, pois, diferente da Activity, a ListActivity já implementa, 
+		internamente, a ListView.
+		
+		
+	
+	
+	
+	
+	
+	

@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Formulario</string>
+
+    <string name="primeiraLinhaPrimeiraColuna">Version</string>
+    <string name="primeiraLinhaSegundaColuna">Version Name</string>
+    <string name="primeiraLinhaTerceiraColuna">API Level</string>
+
+    <string name="segundaLinhaPrimeiraColuna">5.0</string>
+    <string name="segundaLinhaSegundaColuna">Android Lollipop</string>
+    <string name="segundaLinhaTerceiraColuna">21</string>
+
+    <string name="terceiraLinhaPrimeiraColuna">4.4</string>
+    <string name="terceiraLinhaSegundaColuna">Android KitKat</string>
+    <string name="terceiraLinhaTerceiraColuna">19</string>
+
+    <string name="quartaLinhaPrimeiraColuna">4.3</string>
+    <string name="quartaLinhaSegundaColuna">Android Jelly Bean</string>
+    <string name="quartaLinhaTerceiraColuna">18</string>
+</resources>
