@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    tools:context=".PrincipalAlertDialogActitivy">
+
+    <Button
+        android:id="@+id/botao01"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="50dp"
+        android:background="#F44336"
+        android:text="Botão 01"
+        android:onClick="mostarMensagemBotao01"></Button>
+
+    <Button
+        android:id="@+id/botao02"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:background="#673AB7"
+        android:text="Botão 02"
+        android:onClick="mostarMensagemBotao02"></Button>
+
+    <Button
+        android:id="@+id/botao03"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:background="#2196F3"
+        android:text="Botão 03"
+        android:onClick="mostarMensagemBotao03"></Button>
+
+    <Button
+        android:id="@+id/forExercicioProgressDialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:background="#FF5722"
+        android:text="Ir para Exercicio Progress Dialog"
+        android:onClick="irParaExercicioProgressDialog"></Button>
+
+</LinearLayout>
