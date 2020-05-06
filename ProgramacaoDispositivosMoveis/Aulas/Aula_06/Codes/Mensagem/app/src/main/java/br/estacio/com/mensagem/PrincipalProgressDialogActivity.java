@@ -9,7 +9,7 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class PrincipalProgressDialog extends AppCompatActivity {
+public class PrincipalProgressDialogActivity extends AppCompatActivity {
 
     ProgressDialog barraProgresso;
     Handler manipuladorBarraProgresso = new Handler();

@@ -1,16 +1,18 @@
-1. Toast (android.widget.Toast)
+1. Toast [android.widget.Toast]
 	Quando desejamos exibir mensagens de alertas para o usuário
-	*Toast toast = Toast.makeText(contexto, texto, duracao) 
 	
-		contexto, definimos o contexto do aplicativo a ser exibido 
-		na mensagem
+	Esta exibe uma pequena tela, que pode ser personalizada, sem 
+	caráter permanente, ou seja, desaparecendo sem qualquer tipo 
+	de intervenção do usuário.
+	
+	/*Toast toast = Toast.makeText(contexto, texto, duracao)*/ 
 		duração:. Constantes: Toast.LENGTH_SHORT e Toast.LENGTH_LONG.
 
-	*toast.setGravity(Gravity.CENTER,0,0);
+	/*toast.setGravity(Gravity.CENTER,0,0);*/
 		setar o pocisionamento da mensagem
 		
-	*toast.show; 
-		para exibir essa mensagem
+	/*toast.show*/
+		para exibir essa mensagem		
 		
 	1.1 Toast Personalizado
 		botao = findViewById(R.id.botao);
@@ -185,8 +187,16 @@ java.lang.NullPointerException: Attempt to invoke virtual method 'void android.w
 			• setMax: valor máximo do range da ProgressDialog.
 			• show: exibir a ProgressDialog.	
 			
-5. DatePicker
+5. DatePicker [https://www.tutlane.com/tutorial/android/android-datepicker-with-examples]
 	Embora a DatePicker possa ser usada como um widgets independente, ela ocupa muito espaço. 
 	É prudente, então, implementá-la dentro de uma caixa de diálogo [DatePickerDialog]
+	
+6. TimePicker []
+	Poderemos alterar a hora e o minuto e escolher entre AM/PM para nosso horário.
+	
+	DatePickerDialog dialog = new DatePickerDialog(this, mDateSetListener, year, month, day); 
+	dialog.setButton(DialogInterface.BUTTON_NEGATIVE, getString(R.string.cancel), 
+		new DialogInterface.OnClickListener() { public void onClick(DialogInterface dialog, int which) { if (which == DialogInterface.BUTTON_NEGATIVE) { // Do Stuff } } });
+	
 	
 	

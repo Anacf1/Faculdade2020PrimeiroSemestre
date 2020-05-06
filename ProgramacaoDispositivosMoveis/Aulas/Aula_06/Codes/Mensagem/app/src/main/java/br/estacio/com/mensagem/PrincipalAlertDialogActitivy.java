@@ -80,7 +80,7 @@ public class PrincipalAlertDialogActitivy extends AppCompatActivity {
     }
 
     public void irParaExercicioProgressDialog(View view){
-        Intent intent = new Intent(this, PrincipalProgressDialog.class);
+        Intent intent = new Intent(this, PrincipalProgressDialogActivity.class);
         startActivity(intent);
     }
 

@@ -9,21 +9,26 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".PrincipalNotification"
-            android:label="@string/app_nameNotification">
+            android:name=".PrincipalToastDialogActivity"
+            android:label="@string/app_nameToast">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".PrincipalNotificationDialogActivity"
+            android:label="@string/app_nameNotification">
+        </activity>
         <activity android:name=".NotificacaoActivity"></activity>
         <activity android:name=".PrincipalAlertDialogActitivy"
             android:label="@string/app_nameDialog">
         </activity>
-        <activity android:name="PrincipalProgressDialog"
+        <activity android:name=".PrincipalProgressDialogActivity"
             android:label="@string/app_nameProgress">
         </activity>
         <activity android:name=".PrincipalDatePickerDialogActivity"
             android:label="@string/app_nameDatePicker"></activity>
+        <activity android:name=".PrincipalTimePickerDialogActivity"
+            android:label="@string/app_nameTimePicker"></activity>
     </application>
 </manifest>

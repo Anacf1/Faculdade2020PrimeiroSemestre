@@ -12,7 +12,7 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
 
-public class PrincipalNotification extends AppCompatActivity {
+public class PrincipalNotificationDialogActivity extends AppCompatActivity {
 
     @Override
     public void onCreate(Bundle bundle){
@@ -29,16 +29,16 @@ public class PrincipalNotification extends AppCompatActivity {
             }
 
             protected void startNotification(){
-                NotificationCompat.Builder notificacao = new NotificationCompat.Builder(PrincipalNotification.this);
+                NotificationCompat.Builder notificacao = new NotificationCompat.Builder(PrincipalNotificationDialogActivity.this);
                 notificacao.setContentTitle("Notificação Title");
                 notificacao.setContentText("Notificao Text");
                 notificacao.setTicker("Atenção");
                 notificacao.setSmallIcon(R.drawable.ic_launcher_background);
 
-                TaskStackBuilder stackBuilder = TaskStackBuilder.create(PrincipalNotification.this);
+                TaskStackBuilder stackBuilder = TaskStackBuilder.create(PrincipalNotificationDialogActivity.this);
                 stackBuilder.addParentStack(NotificacaoActivity.class);
 
-                Intent intent = new Intent(PrincipalNotification.this, NotificacaoActivity.class);
+                Intent intent = new Intent(PrincipalNotificationDialogActivity.this, NotificacaoActivity.class);
 
                 stackBuilder.addNextIntent(intent);
 

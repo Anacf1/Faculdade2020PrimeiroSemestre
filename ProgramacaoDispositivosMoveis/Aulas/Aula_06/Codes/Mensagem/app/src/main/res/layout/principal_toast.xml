@@ -3,24 +3,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".PrincipalProgressDialogActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".PrincipalToastDialogActivity">
 
     <Button
-        android:id="@+id/botaoEnviarArquivo"
+        android:id="@+id/botaoToast"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="70dp"
-        android:background="#E91E63"
-        android:text="Enviar Arquivo"></Button>
+        android:layout_marginTop="100dp"
+        android:background="#F44336"
+        android:text="Clique aqui!"></Button>
 
     <Button
-        android:id="@+id/forExercicioDatePickerDialog"
+        android:id="@+id/forExercicioNotification"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="10dp"
         android:background="#FF5722"
-        android:text="Ir para Exercicio DatePicker Dialog"
-        android:onClick="irParaExercicioDatePickerDialog"></Button>
+        android:text="Ir para Exercicio Notification Dialog"
+        android:onClick="irParaExercicioNotificationDialog"></Button>
 
 </LinearLayout>
