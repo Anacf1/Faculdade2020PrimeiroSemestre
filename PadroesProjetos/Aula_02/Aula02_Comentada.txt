@@ -25,9 +25,13 @@
 
 
 Factory Method
-		com um conjunto de carros, cada um de uma determinada fábrica. 
+	Tenho um conjunto de carros, cada um de uma determinada fábrica. 
 
-Abstract Factory	
+Abstract Factory
+	Ainda tenho um conjunto de carros; a diferença é que eles foram
+	agrupados em 'categorias' [familia de objetos], então a fábrica 
+	cria carros agora, por categoria e não individualmente.
+	
 A ideia de conjuntos é agrupar objetos que tem comportamentos parecidos. 
 Então surge o padrão Abstract Factory, que leva a mesma ideia do Factory 
 Method para um nível mais alto.

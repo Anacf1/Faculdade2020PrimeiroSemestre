@@ -1,0 +1,34 @@
+Abstract Factory
+	As classes Abstract Factory são frequentemente implementadas com Factory Methods
+(criados por conta da herança), mas podem sê-lo por meio do Prototype (sua criação é
+por meio de delegação).
+
+Builder
+	O código da construção é isolado do código da representação. Ambos são facilmente substituídos sem afetar o
+outro;
+	Padrões relacionados: Bridge; Observer; State.
+	
+	
+Factory Method
+	Muitas vezes, os projetos começam usando o Factory Method (menos complicado e mais personalizável, no
+qual as subclasses proliferam) até evoluírem para Abstract Factory, Prototype ou Builder (mais 􀂧exível e mais
+complexo) à medida que o designer descobrir em qual ponto é necessário haver mais 􀂧exibilidade.
+	Padrões relacionados: Strategy; Visitor.
+	
+Singleton
+	O Abstract Factory, o Builder e o Prototype podem usar o Singleton em suas implementações
+	Padrões relacionados: Abstract Factory, Flyweight, Template
+	
+Adapter
+	Padrões relacionados: Facade; Proxy.
+	
+Bridge
+	Os padrões Adapter, Facade, Composite e Bridge atuam principalmente na adaptação de 
+	interfaces. O Adapter faz as coisas funcionarem depois de serem projetadas; o Bridge, 
+	com que funcionem antes disso.
+	
+	A estrutura de State e Bridge é idêntica, embora este admita hierarquias de múltiplas 
+	classes e aquele, apenas uma.
+	
+	
+	
