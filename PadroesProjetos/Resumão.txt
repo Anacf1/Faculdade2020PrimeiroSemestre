@@ -30,5 +30,39 @@ Bridge
 	A estrutura de State e Bridge é idêntica, embora este admita hierarquias de múltiplas 
 	classes e aquele, apenas uma.
 	
+Composite	
+	O Flyweight é frequentemente combinado com o Composite para implementar nós de folhas 
+	compartilhados. Afinal, o Composite pode ser tratado atomicamente, assim como uma folha.
+
+	Já o padrão Visitor pode aplicar uma operação sobre um Composite, que pode ser percorrido 
+	com Iterator. O Composite também pode usar Chain of Responsibility para permitir que os 
+	componentes acessem propriedades globais por meio de seus pais.
+	
+	manipular coleção hierárquica de objetos de forma uniforme?
+
+	Padrões relacionados:
+
+	Decorator;
+	Chain of Responsibility;
+	Iterator.
+	
+Decorator
+	Desejarmos incluir ou excluir responsabilidades de objetos individuais dinamicamente de forma transparente;
+	Quisermos evitar o crescimento expressivo de subclasses para prover todas as combinações de responsabilidades entre os objetos;
+	Necessitarmos acrescentar responsabilidades a um objeto dinamicamente;
+	Desejarmos fornecer uma alternativa ao uso de subclasses para estender a funcionalidade de uma classe.
+	
+	O Decorator tem a função de adicionar dinamicamente alterações no comportamento dos objetos. Para isso, ele utiliza composição em vez de herança.
+	
+	O Decorator tem um ponto negativo: ele pode criar muitas classes pequenas, tornando o projeto mais difícil de ser entendido.
+	
+	Padrões relacionados:
+	Composite;
+	Chain of Responsibility;
+	Interpreter.
+
+
+
+	
 	
 	
