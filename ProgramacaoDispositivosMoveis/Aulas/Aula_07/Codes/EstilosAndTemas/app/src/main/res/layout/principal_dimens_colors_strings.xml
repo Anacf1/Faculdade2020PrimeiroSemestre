@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/texto"
+        android:layout_width="@dimen/margem_horizontal"
+        android:layout_height="@dimen/margem_vertical"
+        android:textSize="@dimen/textView_tamanhoTexto"
+        android:text="TextView"></TextView>
+
+    <Button
+        android:layout_width="@dimen/margem_vertical"
+        android:layout_height="@dimen/margem_vertical"
+        android:background="@color/colorAccent"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="@dimen/button_tamanhoTexto"
+        android:text="@string/app_textoBotaoPrimeiroExercicio"></Button>
+
+
+</LinearLayout>

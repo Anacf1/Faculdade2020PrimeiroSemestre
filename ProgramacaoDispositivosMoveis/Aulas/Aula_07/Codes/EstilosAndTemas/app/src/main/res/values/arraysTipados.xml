@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="arrayInteiros">
+        <item>1</item>
+        <item>3</item>
+        <item>9</item>
+    </array>
+
+    <array name="arrayCores">
+        <item>@color/colorAccent</item>
+        <item>@color/colorPrimaryDark</item>
+        <item>@color/colorPrimary</item>
+    </array>
+
+    <array name="arrayStrings">
+        <item>Hello</item>
+        <item>Wordl</item>
+        <item>Android</item>
+    </array>
+</resources>
