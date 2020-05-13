@@ -60,6 +60,41 @@ Decorator
 	Composite;
 	Chain of Responsibility;
 	Interpreter.
+	
+Facade
+	O Facade define uma nova interface, enquanto o Adapter usa uma antiga. Lembre-se de que o Adapter faz 
+	duas interfaces existentes trabalharem juntas em vez de definir uma inteiramente nova;
+	
+	Enquanto o Flyweight mostra como criar muitos pequenos objetos, o Facade demonstra como fazer um único 
+	objeto representar um subsistema inteiro;
+	
+	O Abstract Factory pode ser usado como uma alternativa ao Facade para ocultar classes específicas da plataforma;
+	
+	Tanto o Adapter quanto o Facade são invólucros, embora sejam de diferentes tipos. A intenção deste é 
+	produzir uma interface mais simples; a daquele, redesenhar uma existente;
+	
+	Enquanto o Facade rotineiramente envolve vários objetos, o Adapter o faz com apenas um;
+	
+	O Facade poderia ser a interface de um único objeto complexo; o Adapter, de vários objetos legados.
+	
+	Padrões relacionados:
+		Adapter
+		Proxy
+		
+Flyweight [peso mosca]
+	magine que existe um grupo de objetos que serão compartilhados juntos, por exemplo, uma sequência de 
+	objetos do cenário. Nesta situação, existe uma combinação com outro padrão, o Composite. Com ele é 
+	possível agrupar um conjuntos de objetos Flyweight que serão compartilhados juntos.
+	
+	O Flyweight é frequentemente combinado com o Composite para implementar nós de folhas compartilhados.
+	
+	
+	
+	
+	
+	
+	
+	
 
 
 

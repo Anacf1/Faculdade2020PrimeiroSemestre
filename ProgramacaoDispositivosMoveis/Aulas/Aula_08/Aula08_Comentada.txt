@@ -1,0 +1,49 @@
+Persistência de Dados em Android
+	Segurança de dados (Os dados serão privados?)
+	Acesso aos dados (Os dados podem ser acessados por outras aplicações/usuários?)
+	Espaço em disco (Qual a necessidade de espaço de armazenamento?)
+	
+1. Shared Preferences
+	Pequenas quantidades de dados
+	
+	Permite salvar e recuperar pares de chave/valor de tipos primitivos de dados 
+	(booleans, floats, ints, longs, e strings) em um arquivo denominado Arquivo de 
+	Preferências, pois associa um “nome” a uma determinada informação para que 
+	depois se possa recuperá-la através desse nome.
+	
+	1.1 getSharedPreferences() [obter preferências 'compartilhadas' (shared)]
+		• Se precisar acessar múltiplos arquivos de preferências em sua Activity;
+		• Tem como parâmetros o nome da Shared Preference e o modo de abertura.
+
+		Exemplo: 
+			   SharedPreferences sharedpreferences = 
+					  getSharedPreferences(MinhasPreferencias, 
+					  Context.MODE_PRIVATE);
+
+	1.2 getPreferences()
+		• Se precisar de um único arquivo de preferências para a Activity;
+		• Tem como parâmetro o modo de abertura;
+		• Não é definido o nome da Shared Preference por se tratar de um único arquivo.
+
+		Exemplo: 
+			   SharedPreferences sharedpreferences = 
+					getPreferences(Context.MODE_PRIVATE);
+					
+	1.3 Para salvar/alterar, usamos a classe SharedPreferences.Editor
+		Classe auxiliar que escreve no arquivo.
+
+		Editor editor = sharedpreferences.edit();
+		editor.putString("chave", "valor");
+		editor.commit();
+		
+2. Internal Storage
+	Possibilita que sejam salvos arquivos na memória interna do aparelho.
+
+	Essa memória interna é a mesma onde são armazenados os arquivos da Shared Preferences e que, quando 
+	o aplicativo é desinstalado, seus dados são apagados, pois são dados privados de seu aplicativo.
+	
+	
+
+			
+	
+	
