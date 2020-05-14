@@ -10,12 +10,17 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".PrincipalSharedPreferencesActivity"
-            android:label="@string/app_name">
+            android:label="@string/app_nameSharedPreferences">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".PrincipalInternalStorageActivity"></activity>
+        <activity android:name=".PrincipalInternalStorageActivity"
+            android:label="@string/app_nameInternalStorage"></activity>
+        <activity android:name=".PrincipalExternalStorageActivity"
+            android:label="@string/app_nameExternalStorage"></activity>
+        <activity android:name=".PrincipalSQLiteDatabaseActivity"
+            android:label="@string/app_nameSQLLiteDatabase"></activity>
     </application>
 </manifest>

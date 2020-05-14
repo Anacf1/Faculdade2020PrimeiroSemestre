@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    tools:context=".PrincipalSQLiteDatabaseActivity">
+
+    <EditText
+        android:id="@+id/nomeSQLite"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:hint="Nome:"></EditText>
+
+    <EditText
+        android:id="@+id/enderecoSQLite"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Endereço:"></EditText>
+
+    <EditText
+        android:id="@+id/telefoneSQLite"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Telefone:"></EditText>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center_horizontal">
+
+        <TableRow>
+            <Button
+                android:id="@+id/incluirSQLite"
+                android:layout_width="205dp"
+                android:layout_height="wrap_content"
+                android:background="#FF5722"
+                android:onClick="incluirSQLite"
+                android:text="Incluir"></Button>
+
+            <Button
+                android:id="@+id/limparSQLite"
+                android:layout_width="205dp"
+                android:layout_height="wrap_content"
+                android:background="#FFEB3B"
+                android:onClick="limparSQLite"
+                  android:text="Limpar"></Button>
+        </TableRow>
+    </TableLayout>
+</LinearLayout>

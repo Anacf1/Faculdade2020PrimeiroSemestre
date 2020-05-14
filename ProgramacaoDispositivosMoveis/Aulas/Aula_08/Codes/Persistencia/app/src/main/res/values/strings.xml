@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Persistencia</string>
+
+    <string name="app_nameSharedPreferences">Shared Preferences</string>
+    <string name="app_nameInternalStorage">Internal Storage</string>
+    <string name="app_nameExternalStorage">External Storage</string>
+    <string name="app_nameSQLLiteDatabase">SQL Lite Database</string>
 </resources>
