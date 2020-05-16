@@ -4,23 +4,23 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    tools:context=".PrincipalSQLiteDatabaseActivity">
+    tools:context=".PrincipalAdicionarSQLiteDatabaseActivity">
 
     <EditText
-        android:id="@+id/nomeSQLite"
+        android:id="@+id/nomeSQLiteCreate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="text"
         android:hint="Nome:"></EditText>
 
     <EditText
-        android:id="@+id/enderecoSQLite"
+        android:id="@+id/enderecoSQLiteCreate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Endereço:"></EditText>
 
     <EditText
-        android:id="@+id/telefoneSQLite"
+        android:id="@+id/telefoneSQLiteCreate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Telefone:"></EditText>

@@ -8,20 +8,27 @@
     tools:context=".PrincipalSQLiteDatabaseActivity">
 
     <EditText
-        android:id="@+id/nomeSQLiteUpdate"
+        android:id="@+id/idSQLiteObter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="ID:"
+        android:inputType="text"></EditText>
+
+    <EditText
+        android:id="@+id/nomeSQLiteObter"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Nome:"
         android:inputType="text"></EditText>
 
     <EditText
-        android:id="@+id/enderecoSQLiteUpdate"
+        android:id="@+id/enderecoSQLiteObter"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Endereço:"></EditText>
 
     <EditText
-        android:id="@+id/telefoneSQLiteUpdate"
+        android:id="@+id/telefoneSQLiteObter"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Telefone:"></EditText>

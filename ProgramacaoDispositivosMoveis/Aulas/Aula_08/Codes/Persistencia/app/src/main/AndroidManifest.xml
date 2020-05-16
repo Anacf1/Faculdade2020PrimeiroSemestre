@@ -22,5 +22,9 @@
             android:label="@string/app_nameExternalStorage"></activity>
         <activity android:name=".PrincipalSQLiteDatabaseActivity"
             android:label="@string/app_nameSQLLiteDatabase"></activity>
+        <activity android:name=".PrincipalAdicionarSQLiteDatabaseActivity"
+            android:label="@string/app_nameSQLLiteDatabaseAdicionar"></activity>
+        <activity android:name=".PrincipalAtualizarSQLiteDatabaseActivity"
+            android:label="@string/app_nameSQLLiteDatabaseAtualizar"></activity>
     </application>
 </manifest>

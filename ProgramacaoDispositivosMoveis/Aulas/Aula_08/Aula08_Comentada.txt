@@ -135,6 +135,32 @@ Persistência de Dados em Android
 			funções de navegação
 			
 			
+55555555555555555555555555555
+
+DbHelperActivity
+public DbHelperActivity(Context context) {
+        super(context, NOME_BANCO, null, VERSAO_BANCO);
+    }
+
+    @Override
+    public void onCreate(SQLiteDatabase db) {
+        db.execSQL(CREATE_TABLE);
+    }
+
+    @Override
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        db.execSQL("DROP TABLE IF EXISTS " + NOME_TABELA);
+        onCreate(db);
+    }	
+
+	
+			
+			
+			
+			
+			
+			
+			
 			
 
 		

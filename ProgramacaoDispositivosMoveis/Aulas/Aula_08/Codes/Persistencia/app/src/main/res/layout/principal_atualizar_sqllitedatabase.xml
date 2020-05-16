@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="#CACFCE"
     android:orientation="vertical"
-    tools:context=".PrincipalSQLiteDatabaseActivity">
+    tools:context=".PrincipalAtualizarSQLiteDatabaseActivity">
 
     <EditText
         android:id="@+id/nomeSQLiteUpdate"
