@@ -12,6 +12,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -56,7 +57,7 @@ public class PrincipalSQLiteDatabaseActivity extends AppCompatActivity {
         cursorAdapter.notifyDataSetChanged();
 
         listView.setAdapter(cursorAdapter);
-       listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
            @Override
            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                TextView textViewId = (TextView) findViewById(R.id.idSQLiteObter);
@@ -75,6 +76,7 @@ public class PrincipalSQLiteDatabaseActivity extends AppCompatActivity {
                 intent.putExtra("ENDRECO", endereco);
                 intent.putExtra("TELEFONE", telefone);
                 startActivity(intent);
+               Toast.makeText(PrincipalSQLiteDatabaseActivity.this, "Atualizar", Toast.LENGTH_SHORT).show();
            }
        });
     }

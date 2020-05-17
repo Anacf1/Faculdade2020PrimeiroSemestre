@@ -7,30 +7,30 @@
     android:orientation="vertical"
     tools:context=".PrincipalSQLiteDatabaseActivity">
 
-    <EditText
+    <TextView
         android:id="@+id/idSQLiteObter"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="ID:"
-        android:inputType="text"></EditText>
+        android:inputType="text"></TextView>
 
-    <EditText
+    <TextView
         android:id="@+id/nomeSQLiteObter"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Nome:"
-        android:inputType="text"></EditText>
+        android:inputType="text"></TextView>
 
-    <EditText
+    <TextView
         android:id="@+id/enderecoSQLiteObter"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Endereço:"></EditText>
+        android:hint="Endereço:"></TextView>
 
-    <EditText
+    <TextView
         android:id="@+id/telefoneSQLiteObter"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Telefone:"></EditText>
+        android:hint="Telefone:"></TextView>
 
 </LinearLayout>
