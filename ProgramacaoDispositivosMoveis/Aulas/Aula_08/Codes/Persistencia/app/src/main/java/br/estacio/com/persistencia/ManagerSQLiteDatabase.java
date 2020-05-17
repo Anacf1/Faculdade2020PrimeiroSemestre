@@ -35,7 +35,7 @@ public class ManagerSQLiteDatabase {
     }
 
     public Cursor fetch(){
-        String [] colunas = new String [] {dbHelper.COLUNA_ID, dbHelper.COLUNA_NOME, dbHelper.COLUNA_ENDERECO, dbHelper.COLUNA_TELEFONE};
+        String [] colunas = new String [] {dbHelper.COLUNA_ID_CREATE_TABLE, dbHelper.COLUNA_NOME, dbHelper.COLUNA_ENDERECO, dbHelper.COLUNA_TELEFONE};
         Cursor cursor = database.query(dbHelper.NOME_TABELA, colunas, null, null , null, null , null);
         if (cursor != null){
             cursor.moveToFirst();

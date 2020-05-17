@@ -28,7 +28,7 @@ public class PrincipalSQLiteDatabaseActivity extends AppCompatActivity {
     String endereco;
     String telefone;
 
-    final String [] contatoOrigem = new String [] {DbHelperSQLiteDatabase.COLUNA_ID,
+    final String [] contatoOrigem = new String [] {DbHelperSQLiteDatabase.COLUNA_ID_CREATE_TABLE,
             DbHelperSQLiteDatabase.COLUNA_NOME,
             DbHelperSQLiteDatabase.COLUNA_ENDERECO,
             DbHelperSQLiteDatabase.COLUNA_TELEFONE};
@@ -42,7 +42,6 @@ public class PrincipalSQLiteDatabaseActivity extends AppCompatActivity {
         manager = new ManagerSQLiteDatabase(this);
         try {
             manager.open();
-            Cursor cursor = manager.fetch();
         }catch (SQLException e){
             e.printStackTrace();
         }
@@ -80,17 +79,10 @@ public class PrincipalSQLiteDatabaseActivity extends AppCompatActivity {
        });
     }
 
-    /*@Override
-    protected void onListItemClick(ListView list, View view, int posicaoSelecionada, long id){
-        super.onListItemClick(list, view, posicaoSelecionada, id);
-
-        String servico = (String) list.getItemAtPosition(posicaoSelecionada);
-
-        Intent intent = new Intent(this, PrincipalAtualizarSQLiteDatabaseActivity.class);
-        intent.putExtra("ID", id);
-        intent.putExtra("NOME", list.get)
-
-    }*/
+    public void forPrincipal_adicionar_sqlitedatabase(View view){
+        Intent intent = new Intent(this, PrincipalAdicionarSQLiteDatabaseActivity.class);
+        startActivity(intent);
+    }
 
 
 }
