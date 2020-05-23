@@ -1,0 +1,501 @@
+Abstract Factory
+	As classes Abstract Factory são frequentemente implementadas com Factory Methods
+(criados por conta da herança), mas podem sê-lo por meio do Prototype (sua criação é
+por meio de delegação).
+
+Builder
+	O código da construção é isolado do código da representação. Ambos são facilmente substituídos sem afetar o
+outro;
+	Padrões relacionados: Bridge; Observer; State.
+	
+	
+Factory Method
+	Muitas vezes, os projetos começam usando o Factory Method (menos complicado e mais personalizável, no
+qual as subclasses proliferam) até evoluírem para Abstract Factory, Prototype ou Builder (mais 􀂧exível e mais
+complexo) à medida que o designer descobrir em qual ponto é necessário haver mais 􀂧exibilidade.
+	Padrões relacionados: Strategy; Visitor.
+	
+Singleton
+	O Abstract Factory, o Builder e o Prototype podem usar o Singleton em suas implementações
+	Padrões relacionados: Abstract Factory, Flyweight, Template
+
+********* Estruturais *********
+	
+Adapter (Adptador)
+	"O padrão Class Adapter converte uma interface de uma classe (Adpatee) para outra 
+	interface que o cliente espera encontrar (Target)". 
+	
+	O padrão Class Adapter faz as coisas funcionarem depois de projetadas, ou seja, 
+	redesenha uma interface de classe existente.
+	
+	Target -> Adapter -> Adaptee
+	
+	'Adapter':
+		Implementa Target 
+		Estende Adaptee
+	
+	-> Sempre 'um Adapter' para 'cada Adaptee'! 	  
+	
+		a) Comportamento do adaptador de classe 	
+			[Um único Adaptee]	
+			Acesso somente à classe que adapta.
+			
+		b) Comportamento do adaptador de objeto 
+			[Adaptee possui subclasses]	
+			 
+			O 'Adapter' instancia objetos das 'Subclasses' de Adaptee' e, nas chamadas 
+			de métodos repassa para a referência 'Adaptee'.
+	
+	Padrões relacionados:  
+		Facade -> 
+		Proxy ->
+	
+Bridge (Ponte)
+	“Este padrão é utilizado quando queremos separar uma abstração de sua implementação 
+	de modo que as duas possam variar independentemente. 
+
+	O Bridge faz as coisas funcionarem, antes de serem projetadas.	
+	A estrutura de Bridge admita hierarquias de múltiplas classes.
+	
+	1. Defina a hierarquia de classes abstratas como um invólucro (wrapper) para a hierarquia 
+	de classes de implementação;
+	2. O cliente poderá selecionar o objeto encapsulado (wrapper) que necessite configurar 
+	ou modificar;
+	3. Quando o cliente fizer a requisição, o objeto wrapper delegará o pedido para o objeto 
+	de implementação 
+	-> A superclasse Abstrata possui uma 'referência' para superclasse de Implementação!
+	
+	Padrões relacionados:
+		Builder
+		Observer
+		State
+		
+		O Bridge faz as coisas funcionarem, antes de serem projetadas (Adapter, depois).	
+		A estrutura de State e Bridge é idêntica, embora este admita hierarquias de 
+		múltiplas classes. 
+	
+Composite	
+
+	"Este padrão permite que você componha objetos em estruturas de árvore para representar 
+	hierarquias parte-todo 1. Ele [também] permite que clientes tratem objetos individuais ou 
+	composições de objetos de maneira uniforme."
+	
+	Usado para manipular uma coleção hierárquica de objetos simples e compostos, 'evitando que 
+	o processamento desses objetos seja tratado de maneira diferente'.
+	
+		compostos -> galhos
+		simples -> folhas
+	
+	Padrões relacionados:
+		Decorator;
+		Chain of Responsibility;
+		Iterator.	
+	
+	O Flyweight é frequentemente combinado com o Composite para implementar nós de folhas 
+	compartilhados. Afinal, o Composite pode ser tratado atomicamente, assim como uma folha
+
+	Já o padrão Visitor pode aplicar uma operação sobre um Composite, que pode ser percorrido 
+	com Iterator. O Composite também pode usar Chain of Responsibility para permitir que os 
+	componentes acessem propriedades globais por meio de seus pais?	
+
+	O Flyweight é frequentemente combinado com o Composite para implementar nós de folhas compartilhados
+	
+	
+Decorator
+
+	"O padrão Decorator (decorador) adiciona responsabilidades a um objeto dinamicamente (em 
+	tempo de execução)"
+	
+	Usado para evitar o crescimento expressivo de subclasses para prover todas as combinações 
+	de responsabilidades entre os objetos; onde a herança não é viável por ser estática e se 
+	aplicar a uma classe inteira.
+	
+	[X] O Decorator tem um ponto negativo: ele pode criar muitas classes pequenas, tornando o projeto 
+	mais difícil de ser entendido.
+	
+	Padrões relacionados:
+	Composite;
+	Chain of Responsibility;
+	Interpreter.	
+	
+Facade
+	"O padrão Facade cria 'uma interface unificada' para um 'conjunto de interfaces' num subsistema. 
+	
+	[X] Há um ponto negativo no Facade: se ele for o único ponto de acesso para o subsistema, limitará os 
+	recursos e a flexibilidade de que os usuários avançados podem precisar.
+	
+	Padrões relacionados:
+		Adapter
+		Proxy
+		
+	O Facade define uma nova interface, enquanto o Adapter usa uma antiga.	
+	Enquanto o Facade rotineiramente envolve vários objetos, o Adapter o faz com apenas um;
+	Enquanto o Flyweight mostra como criar muitos pequenos objetos, o Facade demonstra como 
+	fazer um único objeto representar um subsistema inteiro;
+	O Abstract Factory pode ser usado como uma alternativa ao Facade para ocultar classes 
+	específicas da plataforma;
+			
+Flyweight [peso mosca]
+	"Este padrão permite usar 'compartilhamento' para oferecer suporte a muitos objetos de 
+	pequena funcionalidade de maneira eficiente."
+	
+	Flyweight utiliza a técnica de 'compartilhamento' para dar suporte eficiente ao uso de muitos objetos 
+	de granularidade pequena, que são caros em termos de desempenho e uso de memória.
+	
+	Passos:
+		1. Escolha uma classe na qual serão criadas muitas instâncias que causarão problemas 
+			de baixo desempenho do sistema.
+		2. Identifique o estado associado com cada classe que não irá variar de uma instância 
+		para outra e o estado específico a cada uma delas. 
+			2.1 O estado, que 'não' pode ser 'compartilhado (agrupado)' entre elas, deve ser mantido e 
+				suportado pelo cliente, que passará essas informações para o objeto Flyweight 
+				quando for utilizá-lo. 
+			2.2 O estado comum a todas as instâncias é armazenado e compartilhado pelo Flyweight.
+		3. Os Flyweights são armazenados no repositório de uma Factory. O cliente se limita apenas 
+			a criá-los, encaminhando uma solicitação para a Factory. 
+			
+	Padrões relacionados:
+		Abstract Factory
+		Singleton
+		Template Method
+		
+	O Flyweight é frequentemente combinado com o Composite para implementar nós de folhas compartilhados.
+	
+	Já o padrão Visitor pode aplicar uma operação sobre um Composite, que pode ser percorrido 
+	com Iterator. O Composite também pode usar Chain of Responsibility para permitir que os 
+	componentes acessem propriedades globais por meio de seus pais?		
+		
+Proxy
+	"Este padrão fornece um 'substituto' ou representante 'de outro objeto' para controlar o acesso a ele."
+	
+	O Proxy atua como um encapsulador (wrapper) do objeto que delega tarefas ao Objeto Real.
+	
+	Tipos:
+		1. O proxy remoto: controla o acesso a um objeto remoto por meio de um protocolo de 
+			comunicação da rede de dados.
+		2. O proxy virtual: controla o acesso a um recurso cuja criação é onerosa.
+		3. O proxy de proteção: controla acesso a um recurso de acordo com o protocolo de 
+			controle de acesso.
+		4. O proxy inteligente: interpõe ações adicionais quando um objeto for acessado. Seus 
+		usos típicos incluem: contar o número de referências ao objeto real para que ele possa 
+		ser liberado automaticamente quando não houver mais referências (também conhecido como 
+		ponteiro inteligente) e etc.	
+
+	Padrões relacionados:
+		Adapter
+		Facade
+		
+	O Adapter fornece uma interface diferente para o Objeto; o Proxy, a mesma interface; 
+	e o Decorator, uma versão aprimorada.
+
+	Decorator e Proxy têm propósitos diferentes, mas possuem estruturas semelhantes: ambos 
+	descrevem como fornecer um nível de redirecionamento para outro objeto, mantendo uma referência 
+	àquele para o qual encaminham solicitações em suas implementações?
+
+********* Comportamentais *********
+	Os padrões comportamentais estabelecem padrões de comunicação para facilitar a troca 
+	de informações entre as classes e os objetos. Seu objetivo é mediar a atribuição de 
+	responsabilidades entre os objetos do sistema.
+	
+	a) Padrões de escopo de classe
+		Utilizam o mecanismo da herança para realizar a distribuição do 
+		comportamento dos objetos.
+	b) Padrões de escopo de objeto
+		Atuam para compor os objetos a fim de que se comuniquem entre si.
+		Exemplo: o Mediator (em português, mediador) permite que a comunicação 
+		entre uma grande quantidade de objetos seja mediada por um único objeto 
+		controlador.
+		
+Interpreter???
+	“Dada uma linguagem, definir uma representação para sua 
+	gramática juntamente com um interpretador que usa a 
+	representação para interpretar sentenças dessa linguagem.”
+	
+	Este padrão usa uma classe para representar cada regra gramatical.
+	
+	Padrões relacionados:	
+		O Interpreter possui uma estrutura parecida com a do padrão Composite, pois ela 
+		define inicialmente uma classe abstrata, que é a classe base para todas as 
+		interpretadoras.
+		
+Template Method
+	Definir o esqueleto de um algoritmo dentro de uma operação, 
+	deixando alguns passos serem preenchidos pelas subclasses. 
+	Template Method permite que suas subclasses redefinam certos 
+	passos de um algoritmo sem mudar sua estrutura"	
+	
+	Padrões relacionados:
+		O Template Method usa a herança para variar parte de um algoritmo e modifica a 
+		lógica da classe inteira. Já o padrão Factory Method é uma especialização do 
+		Template Method.
+		
+		Abstract Factory
+		Singleton	
+		Flyweight
+
+Chain of Responsibility (Cadeia de Responsibilidade)
+	"Evite acoplar o remetente de uma solicitação ao seu destinatário, 
+	dando a mais de um objeto a chance de atender à solicitação. 
+	Encadeie os objetos de recebimento e passe a solicitação ao longo 
+	da cadeia até que um objeto a manipule"
+	
+	A classe base mantém um ponteiro próximo.
+	Cada classe derivada implementa sua contribuição para manipular a solicitação.
+	
+	Padrões relacionados:		
+		Os padrões Chain of Responsibility, Command, Mediador e Observer abordam como você pode 
+		dissociar remetentes e destinatários, mas com diferentes compensações.
+		
+		O Chain of Responsibility passa uma solicitação do remetente ao longo de uma cadeia de 
+		possíveis receptores. Ele pode usar o Command para representar solicitações como objetos. 
+		Este padrão é frequentemente aplicado em conjunto com o Composite, que pode tratar os objetos 
+		da composição para atuarem como uma cadeia de objetos.
+		
+		Composite
+		Decorator
+		Interpreter
+		
+Command
+	“O padrão encapsula um pedido em um objeto, permitindo, 
+	assim, parametrizar clientes com pedidos diferentes, enfileirar 
+	pedidos, fazer log de pedidos e dar suporte a operações de undo”
+	
+Padrões relacionados:
+	
+	A primeira vista o padrão pode ser confundido com o padrão Template Method, pois ambos 
+	utilizam a herança para unificar a interface de várias classes. A diferença básica é que 
+	no padrão Command não existe a ideia de um “algoritmo” que será executado. No padrão Template 
+	Method as subclasses definem apenas algumas operações, sem alterar o esqueleto de execução. 
+	
+	Command pode usar o padrão Memento para manter o estado necessário para uma operação de desfazer (
+	undo). Este comando – que deve ser copiado antes de colocado em uma lista de histórico – atua como 
+	um Protótipo (Prototype). O padrão Chain of Responsibility pode usá-lo para representar requisições 
+	aos objetos.
+	
+	Prototype;
+	Iterator;
+	Mediator;
+	Memento.
+	
+Iterator?
+	"Um objeto agregado, como uma lista, deve fornecer uma 
+	maneira de acessar seus elementos sem expor sua estrutura 
+	interna. 
+	
+	Temos 2 Interfaces:
+		1. Interface Agregados.
+		2. Interface interator
+			Todo iterador possui um método que inicia o iterador (first), 
+			avança o iterador (next), verifica se já encerrou o percurso 
+			(isDone) e o que retorna o objeto atual (currentItem).
+			
+	
+Mediator
+	"Define um objeto que encapsula o modo como um conjunto 
+	de objetos interage. O padrão Mediator promove o acoplamento 
+	fraco, evitando que objetos referenciem uns aos outros 
+	explicitamente, e permite que suas interações variem 
+	independentemente."
+	
+	O uso deste padrão se tornará viável quando for necessário separar 
+	a comunicação entre vários objetos com a utilização de uma interface 
+	cuja função é mediar a comunicação entre eles. (LEÃO, 2018)	
+	
+	Remover o forte acoplamento em relacionamentos muitos-para-muitos
+	
+	No padrão Mediator, um objeto mediador deve encapsular a comunicação 
+	entre um grupo de objetos. Note que cada objeto participante deve 
+	conhecer o mediador, mas ignorar a existência dos outros objetos: 
+	apenas o objeto mediador conhece cada um dos outros participantes. 
+	Ele, portanto, é o responsável pela comunicação entre os demais objetos, 
+	recebendo e repassando requisições entre eles. Toda essa política de 
+	comunicação é determinada pelo mediador.
+	
+	1. Interface Mediator(Envia)		
+	2. Abstract class Colleague(Recebe)
+		Cada classe Colleague conhece seu objeto Mediator 
+		Destinatarios/Remetentes
+		
+	Padrões relacionados:
+		
+		Mediator e Observer são padrões concorrentes. A diferença entre eles é que 
+		este distribui a comunicação utilizando dois tipos de objetos (observador e 
+		assunto), enquanto aquele encapsula a comunicação entre outros?
+		
+		Mediator é semelhante ao padrão Facade, pois abstrai a funcionalidade das classes 
+		existentes. Ele trata da maneira de dissociar remetentes e destinatários, utilizando 
+		remetentes e receptores que fizerem indiretamente referências entre si.
+		
+		Prototype;
+		Command;
+		Iterator;
+		Memento.
+		
+Memento
+	Memento permite que os valores dos atributos sejam 
+	salvos em um objeto e depois recuperados. Para isso, 
+	usa-se uma classe de armazenamento de estados, que 
+	é comum no uso deste padrão: “Sem violar o princípio 
+	de encapsulamento, captura e externaliza o estado 
+	interno de um objeto de forma a poder restaurar o 
+	estado desse objeto posteriormente”.
+	
+	O padrão Memento oferece uma maneira simples de salvar estados 
+	internos de um objeto, para restaurá-lo para esse estado posteriormente
+	
+	Padrões relacionados:
+		Command pode usar o padrão Memento para manter o estado necessário para uma operação 
+		de desfazer (undo). Memento é frequentemente aplicado em conjunto com o Iterator, que 
+		pode utilizar um Memento para capturar o estado de uma iteração.
+
+		O Iterator armazena o Memento internamente. Usar este padrão pode ser caro a depender 
+		da quantidade de informação de estado que deve ser armazenada dentro do objeto Memento.
+		
+		Prototype;
+		Command;
+		Iterator;
+		Mediator.
+		
+Observer	
+	"Definir uma dependência um-para-muitos entre objetos 
+	para que, quando um objeto mudar de estado, todos os seus 
+	dependentes sejam notificados e atualizados automaticamente".
+	
+	1. Subject
+		Mantém os dados compartilhados 
+		e a lista de observadores.
+	2. Observer
+		Faz utilização dos dados compartilhados 
+		e deve ser atualizado a cada modificação.
+		
+	O padrão Observer captura a maior parte da arquitetura MVC
+	
+	ObserverObservable é a implementação do Java ObserverPattern presente no livro Design patterns: 
+	é uma classe que implementa os métodos subject do GoF (isto é, addObserver(), removeObserver() 
+	e notifyObservers(). Já o Observer é uma interface que define um método update().
+		
+	Padrões relacionados:
+	
+		Mediador e Observer são padrões concorrentes. A diferença entre eles é que este 
+		distribui a comunicação, introduzindo objetos observadores e assuntos, enquanto 
+		aquele encapsula a comunicação entre outros objetos. Mediador, no entanto, pode 
+		aproveitar o Observer para registrar dinamicamente colegas e se comunicar com eles.
+		
+		Builder
+		Bridge
+		State
+	
+State	
+	"Permite a um objeto alterar seu comportamento 
+	quando o seu estado interno muda. O objeto estará 
+	aparentemente mudando de classe com a mudança de 
+	estado."
+	
+	State é indicado quando:
+		O comportamento de um objeto deve ser modificado em função de seu estado durante a 
+		execução do programa;
+		Um programa possui muitas instruções de desvio condicional (If, Case) que alteram a 
+		sua sequência de execução com base no seu estado.
+		
+	Geralmente Singletons, os objetos State são compartilhados quando e como determina o Flyweight. A estrutura de State e Bridge é idêntica, embora este admite hierarquias de classes de envelope e aquele, apenas uma.
+	
+	Padrões relacionados:
+		Geralmente Singletons, os objetos State são compartilhados quando e como determina o Flyweight. 
+		A estrutura de State e Bridge é idêntica, embora este admite hierarquias de classes de envelope 
+		e aquele, apenas uma.
+		
+		Builder
+		Bridge
+		Observer
+		
+Strategy
+	"Definir uma família de algoritmos, encapsular 
+	cada uma delas e torná-las intercambiáveis. 
+	O Strategy permite que o algoritmo varie 
+	independentemente dos clientes que o utilizam".
+	
+	A resposta dada pelo Strategy é utilizar classes separadas (Strategy1, Strategy2, …) 
+	que implementam (encapsulam) cada algoritmo e utilizam uma interface comum (Strategy) 
+	pela qual os algoritmos podem ser alterados em tempo de execução.
+	
+	Muitas classes relacionadas diferirem somente no seu comportamento. Este padrão 
+	apresenta uma maneira flexível de configurar uma classe para ela ter vários 
+	comportamentos;
+	
+	O Contexto mantém uma referência a 
+	uma das estratégias concretas e se 
+	comunica com este objeto apenas por 
+	meio da interface da estratégia.
+	
+Padrões relacionados:
+	O Strategy permite que você mude o interior de um objeto; o Decorator, o exterior. 
+	Ele é como o padrão Template Method – exceto em sua granularidade. Strategy, State 
+	e Bridge têm estruturas de solução semelhantes: todos compartilham seus elementos, 
+	embora difiram em intenção – isto é, eles resolvem problemas diferentes.
+	
+	Factory Method
+	Visitor
+	
+Visitor	
+	"Representa uma operação a ser realizada 
+	nos elementos de uma estrutura de objetos. 
+	O Visitor permite que se defina uma nova 
+	operação sem alterar as classes dos 
+	elementos nos quais a operação age"
+	
+	O padrão Visitor oferece uma excelente alternativa quando é necessário realizar 
+	uma série de operações sobre um conjunto de dados, dado que estas operações são 
+	pouco estáveis, ou seja, sofrem alterações constantemente.
+	
+	Padrões relacionados:
+		Padrões que utilizem estruturas de dados para representação podem utilizar o 
+		padrão Visitor, por exemplo, uma estrutura Composite ou Interpreter, pode 
+		oferecer um método de visita e atribuir para as classes visitantes a 
+		responsabilidade das operações sobre seu conjunto de dados.
+		
+		Já que o padrão Visitor é utilizado para percorrer um conjunto de dados, qual 
+		a diferença dele e do padrão Iterator? A intenção do padrão Iterator é fornecer 
+		uma maneira de percorrer os elementos de uma estrutura, expondo seus elementos e 
+		deixando para o cliente a responsabilidade de operar sobre estes. O padrão Visitor 
+		oferece operações sobre elementos, sem expor seu conteúdo, ou delegar responsabilidades 
+		extras para o cliente.
+		
+		O Visitor é como um padrão Command mais poderoso, pois o visitante pode iniciar o que 
+		for apropriado para o tipo de objeto que encontrar. Além de representar a técnica clássica 
+		para recuperar informações de tipo perdidas sem recorrer a conversões dinâmicas, ele atua 
+		em parceria com o Composite.
+		
+		Factory Method
+		Strategy
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		
+	
+	
+	
+
+
+	
+	
+	
+
+
+	
+		
+		
+	
+	
+	
+	
+	
+	
+	
+	
