@@ -1,27 +1,78 @@
-Abstract Factory
-	As classes Abstract Factory são frequentemente implementadas com Factory Methods
-(criados por conta da herança), mas podem sê-lo por meio do Prototype (sua criação é
-por meio de delegação).
+Padrões Projeto
+	GoF	
+		Criacionais [5]
+			Abstract Factory, Builder, Factory Method, Prototype, Singleton
+		Estruturais [7]
+			Bridge, Adapter, Composite, Decorator, Façade, Flyweight, Proxy
+		Comportamentais [11]
+			Interpreter, Template Method, Chain of Responsibility, Command,  Iterator, Mediator, Memento, Observer
+			State, Strategy, Visitor		
+	Grasp
+		Information Expert, Creator, Coupling, High Cohesion, Controller, Polymorphism.		
 
-Builder
-	O código da construção é isolado do código da representação. Ambos são facilmente substituídos sem afetar o
-outro;
-	Padrões relacionados: Bridge; Observer; State.
+********* Criacionais *********
+
+1. Abstract Factory
+	As classes Abstract Factory são frequentemente implementadas com Factory Methods
+	(criados por conta da herança), mas podem sê-lo por meio do Prototype (sua criação é
+	por meio de delegação).
+
+2. Builder
+	O código da construção é isolado do código da representação. Ambos são facilmente 
+	substituídos sem afetar o outro;
 	
+	Padrões relacionados: 
+		Bridge; 
+		Observer; 
+		State.	
 	
-Factory Method
-	Muitas vezes, os projetos começam usando o Factory Method (menos complicado e mais personalizável, no
-qual as subclasses proliferam) até evoluírem para Abstract Factory, Prototype ou Builder (mais 􀂧exível e mais
-complexo) à medida que o designer descobrir em qual ponto é necessário haver mais 􀂧exibilidade.
-	Padrões relacionados: Strategy; Visitor.
+3. Factory Method
+	Muitas vezes, os projetos começam usando o Factory Method (menos complicado e mais 
+	personalizável, no qual as subclasses proliferam) até evoluírem para Abstract Factory, 
+	Prototype ou Builder (mais 􀂧exível e mais complexo) à medida que o designer descobrir 
+	em qual ponto é necessário haver mais 􀂧exibilidade. 
 	
-Singleton
+	Padrões relacionados: 
+		Strategy; 
+		Visitor.
+	
+4. Prototype
+	
+5. Singleton
 	O Abstract Factory, o Builder e o Prototype podem usar o Singleton em suas implementações
-	Padrões relacionados: Abstract Factory, Flyweight, Template
+	
+	Padrões relacionados: 
+		Abstract Factory, 
+		Flyweight, 
+		Template
 
 ********* Estruturais *********
+
+1. Bridge (Ponte)
+	“Este padrão é utilizado quando queremos separar uma abstração de sua implementação 
+	de modo que as duas possam variar independentemente. 
+
+	O Bridge faz as coisas funcionarem, antes de serem projetadas.	
+	A estrutura de Bridge admita hierarquias de múltiplas classes.
 	
-Adapter (Adptador)
+	1. Defina a hierarquia de classes abstratas como um invólucro (wrapper) para a hierarquia 
+	de classes de implementação;
+	2. O cliente poderá selecionar o objeto encapsulado (wrapper) que necessite configurar 
+	ou modificar;
+	3. Quando o cliente fizer a requisição, o objeto wrapper delegará o pedido para o objeto 
+	de implementação 
+	-> A superclasse Abstrata possui uma 'referência' para superclasse de Implementação!
+	
+	Padrões relacionados:
+		Builder
+		Observer
+		State
+		
+		O Bridge faz as coisas funcionarem, antes de serem projetadas (Adapter, depois).	
+		A estrutura de State e Bridge é idêntica, embora este admita hierarquias de 
+		múltiplas classes. 
+		
+2. Adapter (Adptador)
 	"O padrão Class Adapter converte uma interface de uma classe (Adpatee) para outra 
 	interface que o cliente espera encontrar (Target)". 
 	
@@ -49,32 +100,8 @@ Adapter (Adptador)
 	Padrões relacionados:  
 		Facade -> 
 		Proxy ->
-	
-Bridge (Ponte)
-	“Este padrão é utilizado quando queremos separar uma abstração de sua implementação 
-	de modo que as duas possam variar independentemente. 
-
-	O Bridge faz as coisas funcionarem, antes de serem projetadas.	
-	A estrutura de Bridge admita hierarquias de múltiplas classes.
-	
-	1. Defina a hierarquia de classes abstratas como um invólucro (wrapper) para a hierarquia 
-	de classes de implementação;
-	2. O cliente poderá selecionar o objeto encapsulado (wrapper) que necessite configurar 
-	ou modificar;
-	3. Quando o cliente fizer a requisição, o objeto wrapper delegará o pedido para o objeto 
-	de implementação 
-	-> A superclasse Abstrata possui uma 'referência' para superclasse de Implementação!
-	
-	Padrões relacionados:
-		Builder
-		Observer
-		State
 		
-		O Bridge faz as coisas funcionarem, antes de serem projetadas (Adapter, depois).	
-		A estrutura de State e Bridge é idêntica, embora este admita hierarquias de 
-		múltiplas classes. 
-	
-Composite	
+3. Composite	
 
 	"Este padrão permite que você componha objetos em estruturas de árvore para representar 
 	hierarquias parte-todo 1. Ele [também] permite que clientes tratem objetos individuais ou 
@@ -101,7 +128,7 @@ Composite
 	O Flyweight é frequentemente combinado com o Composite para implementar nós de folhas compartilhados
 	
 	
-Decorator
+4. Decorator
 
 	"O padrão Decorator (decorador) adiciona responsabilidades a um objeto dinamicamente (em 
 	tempo de execução)"
@@ -118,7 +145,7 @@ Decorator
 	Chain of Responsibility;
 	Interpreter.	
 	
-Facade
+5. Facade
 	"O padrão Facade cria 'uma interface unificada' para um 'conjunto de interfaces' num subsistema. 
 	
 	[X] Há um ponto negativo no Facade: se ele for o único ponto de acesso para o subsistema, limitará os 
@@ -135,7 +162,7 @@ Facade
 	O Abstract Factory pode ser usado como uma alternativa ao Facade para ocultar classes 
 	específicas da plataforma;
 			
-Flyweight [peso mosca]
+6. Flyweight [peso mosca]
 	"Este padrão permite usar 'compartilhamento' para oferecer suporte a muitos objetos de 
 	pequena funcionalidade de maneira eficiente."
 	
@@ -165,7 +192,7 @@ Flyweight [peso mosca]
 	com Iterator. O Composite também pode usar Chain of Responsibility para permitir que os 
 	componentes acessem propriedades globais por meio de seus pais?		
 		
-Proxy
+7. Proxy
 	"Este padrão fornece um 'substituto' ou representante 'de outro objeto' para controlar o acesso a ele."
 	
 	O Proxy atua como um encapsulador (wrapper) do objeto que delega tarefas ao Objeto Real.
@@ -206,7 +233,7 @@ Proxy
 		entre uma grande quantidade de objetos seja mediada por um único objeto 
 		controlador.
 		
-Interpreter???
+1. Interpreter!
 	“Dada uma linguagem, definir uma representação para sua 
 	gramática juntamente com um interpretador que usa a 
 	representação para interpretar sentenças dessa linguagem.”
@@ -218,7 +245,20 @@ Interpreter???
 		define inicialmente uma classe abstrata, que é a classe base para todas as 
 		interpretadoras.
 		
-Template Method
+		O Interpreter pode usar o padrão State para definir contextos de análise. Sua 
+		árvore de sintaxe abstrata é um Composite; portanto, os padrões Iterator e Visitor 
+		também são aplicáveis.
+
+		Lembre-se de que o padrão Interpreter não contém recomendações sobre a forma de se 
+		analisar a linguagem. Quando a gramática for muito complexa, outras técnicas (como 
+		um analisador) serão mais apropriadas.
+		
+	Padrões relacionados:
+		Composite;
+		Decorator;
+		Chain of Responsibility.
+		
+2. Template Method
 	Definir o esqueleto de um algoritmo dentro de uma operação, 
 	deixando alguns passos serem preenchidos pelas subclasses. 
 	Template Method permite que suas subclasses redefinam certos 
@@ -233,7 +273,7 @@ Template Method
 		Singleton	
 		Flyweight
 
-Chain of Responsibility (Cadeia de Responsibilidade)
+3. Chain of Responsibility (Cadeia de Responsibilidade)
 	"Evite acoplar o remetente de uma solicitação ao seu destinatário, 
 	dando a mais de um objeto a chance de atender à solicitação. 
 	Encadeie os objetos de recebimento e passe a solicitação ao longo 
@@ -255,7 +295,7 @@ Chain of Responsibility (Cadeia de Responsibilidade)
 		Decorator
 		Interpreter
 		
-Command
+4. Command
 	“O padrão encapsula um pedido em um objeto, permitindo, 
 	assim, parametrizar clientes com pedidos diferentes, enfileirar 
 	pedidos, fazer log de pedidos e dar suporte a operações de undo”
@@ -277,10 +317,15 @@ Padrões relacionados:
 	Mediator;
 	Memento.
 	
-Iterator?
+5. Iterator!
 	"Um objeto agregado, como uma lista, deve fornecer uma 
 	maneira de acessar seus elementos sem expor sua estrutura 
 	interna. 
+	
+	O problema tratado pelo Iterator refere-se à necessidade de 
+	abstrairmos o percurso de estruturas de dados totalmente diferentes 
+	para que possam ser definidos algoritmos capazes de interagir com 
+	cada uma delas de forma transparente.
 	
 	Temos 2 Interfaces:
 		1. Interface Agregados.
@@ -289,8 +334,18 @@ Iterator?
 			avança o iterador (next), verifica se já encerrou o percurso 
 			(isDone) e o que retorna o objeto atual (currentItem).
 			
+	Padrões relacionados:
+		Iterator() é um exemplo de Factory Method. Memento, por sua vez, 
+		será frequentemente usado em conjunto com o padrão Iterator, que 
+		também pode utilizá-lo para capturar o estado de uma iteração. 
+		Afinal, a classe Iterator armazena a classe Memento internamente.
+		
+		Prototype;
+		Command;
+		Mediator;
+		Memento.			
 	
-Mediator
+6. Mediator
 	"Define um objeto que encapsula o modo como um conjunto 
 	de objetos interage. O padrão Mediator promove o acoplamento 
 	fraco, evitando que objetos referenciem uns aos outros 
@@ -311,7 +366,8 @@ Mediator
 	recebendo e repassando requisições entre eles. Toda essa política de 
 	comunicação é determinada pelo mediador.
 	
-	1. Interface Mediator(Envia)		
+	1. Inter
+	face Mediator(Envia)		
 	2. Abstract class Colleague(Recebe)
 		Cada classe Colleague conhece seu objeto Mediator 
 		Destinatarios/Remetentes
@@ -331,7 +387,7 @@ Mediator
 		Iterator;
 		Memento.
 		
-Memento
+7. Memento
 	Memento permite que os valores dos atributos sejam 
 	salvos em um objeto e depois recuperados. Para isso, 
 	usa-se uma classe de armazenamento de estados, que 
@@ -356,7 +412,7 @@ Memento
 		Iterator;
 		Mediator.
 		
-Observer	
+8. Observer	
 	"Definir uma dependência um-para-muitos entre objetos 
 	para que, quando um objeto mudar de estado, todos os seus 
 	dependentes sejam notificados e atualizados automaticamente".
@@ -385,7 +441,7 @@ Observer
 		Bridge
 		State
 	
-State	
+9. State	
 	"Permite a um objeto alterar seu comportamento 
 	quando o seu estado interno muda. O objeto estará 
 	aparentemente mudando de classe com a mudança de 
@@ -408,7 +464,7 @@ State
 		Bridge
 		Observer
 		
-Strategy
+10. Strategy
 	"Definir uma família de algoritmos, encapsular 
 	cada uma delas e torná-las intercambiáveis. 
 	O Strategy permite que o algoritmo varie 
@@ -436,7 +492,7 @@ Padrões relacionados:
 	Factory Method
 	Visitor
 	
-Visitor	
+11. Visitor	
 	"Representa uma operação a ser realizada 
 	nos elementos de uma estrutura de objetos. 
 	O Visitor permite que se defina uma nova 
@@ -467,6 +523,130 @@ Visitor
 		
 		Factory Method
 		Strategy
+		
+*********************GRASP********************
+
+	1. As responsabilidades de um objeto estão relacionadas às obrigações que ele tem quanto a seu comportamento.
+	2. As responsabilidades da classe não devem ser confundidas com os métodos dela, que são construídos para satisfazer 
+		às responsabilidades, as quais, por sua vez, são implementadas usando um ou vários métodos para realizar alguma função 
+		útil no sistema.
+	
+	
+Information Expert
+	A ideia principal deste padrão é atribuir uma responsabilidade para a 
+	classe que tem a informação necessária para satisfazê-la.
+	Tal classe é considerada a especialista na informação (information expert).
+	
+	Benefícios
+		O padrão possui baixo acoplamento entre os objetos na medida em que mantém 
+		o encapsulamento de informações dentro das classes que têm a responsabilidade 
+		de utilizá-las, pois os objetos usam a própria informação para cumprir suas 
+		responsabilidades ou enviam mensagens para as outras classes colaboradoras 
+		a fim de obter as informações de que necessitam;
+
+		Caso seja necessário que várias classes trabalhem em conjunto para cumprir uma 
+		determinada responsabilidade devido à tarefa ser complexa, esse esforço ficará 
+		distribuído entre elas, favorecendo a alta coesão.
+		
+		Padrões e princípios relacionados:
+			Low Coupling;
+			High Cohesion.
+			
+Creator
+	Identificar as situações em que uma classe deve criar objetos de outra. 
+	O padrão Criador organiza a atribuição de responsabilidades relacionadas 
+	com a criação de objetos de software.
+
+	A classe criadora:
+		Contém ou agrega objetos da outra classe;	
+		Registra instâncias da outra;	
+		Usa muitos objetos da outra;	
+		Possui dados que serão usados na iniciação e repassados ao construtor da outra.
+		
+	Verificamos se o objeto A faz parte de um relacionamento todo-parte. 
+	Nesse caso, normalmente o todo é o responsável pela criação de A quando 
+	outro objeto tem uma associação de um-para-muitos, em que A é o lado muitos;	
+	
+	Investigamos se o objeto A está associado ao objeto de controle;	
+	Vemos se alguma classe tem dados necessários para a iniciação do objeto A.
+	
+	Padrões e princípios relacionados:
+		Low Coupling;
+		Factory Method.
+		
+Low Coupling
+	O acoplamento é uma medida sobre quão fortemente uma classe está conectada a outras, 
+	tem conhecimento ou depende delas. Uma classe com baixo (fraco) acoplamento não depende 
+	de muitas outras. Ao contrário, uma com forte acoplamento apresenta alguns problemas.
+	
+	Atribuir uma responsabilidade às classes do sistema de maneira que o acoplamento entre elas permaneça fraco.
+	
+	Formas de acoplamento
+		O objeto tem um atributo que referencia outro de outra classe;
+		O objeto possui um método que referencia outro de outra classe;
+		A classe é subclasse de outra direta ou indiretamente.
+		
+	Benefícios do padrão Low Coupling:
+		Não é afetado por mudanças em outros componentes;
+		É simples de ser entendido isoladamente;
+		É conveniente para reutilização.
+		
+High Cohesion
+	A coesão é uma medida de quão fortemente relacionadas e focadas são as 
+	responsabilidades de uma classe. A ideia principal do padrão High Cohesion 
+	é controlar a complexidade das classes.
+	
+Controller
+	O Controller é responsável por tratar os eventos de um sistema em uma única 
+	classe que o representa inteiramente ou somente um cenário de caso de uso no 
+	qual ocorram eles ocorram.
+	
+	Um Controller é um objeto de interface responsável por receber ou manipular 
+	um evento do sistema. 
+	
+	O Controller sabe como interpretar as ações das interfaces do usuário e conectá-las 
+	aos comportamentos em seu sistema. Este padrão separa as interfaces do usuário dos 
+	objetos de negócios, permitindo que ambos mudem de maneira independente
+	
+	Padrões e princípios relacionados:
+		Command;
+		Facade.
+	
+Polymorphism
+	As responsabilidades devem ser atribuídas a abstrações, e não a objetos concretos, 
+	permitindo que eles possam variar conforme haja necessidade.
+	
+	O padrão Polymorphism expõe um princípio fundamental no projeto da organização de um 
+	sistema para tratar variações de comportamento em componentes semelhantes.
+	
+	Um projeto baseado na atribuição de responsabilidades pode ser facilmente estendido 
+	para tratar novas situações com métodos polimórficos que serão implementados e estendidos 
+	de acordo com o comportamento desejado. As subclasses de uma superclasse são, portanto, 
+	capazes de invocar métodos que se comportam de maneira diferente para cada classe derivada.
+	
+	Indicações
+		Quando há previsão da ocorrência futura de variações nas responsabilidades da classe
+		
+	Padrões e princípios relacionados
+		Adapter;
+		Command;
+		Composite;
+		State;
+		Strategy.
+	
+	
+	
+	
+	
+	
+	
+		
+
+		
+	
+	
+
+	
 	
 	
 	
