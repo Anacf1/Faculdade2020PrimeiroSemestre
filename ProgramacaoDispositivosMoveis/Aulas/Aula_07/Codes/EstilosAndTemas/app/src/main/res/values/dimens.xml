@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margem_horizontal">100dp</dimen>
+    <dimen name="margem_vertical">100dp</dimen>
+    <dimen name="textView_tamanhoTexto">12sp</dimen>
+    <dimen name="button_tamanhoTexto">12sp</dimen>
+</resources>

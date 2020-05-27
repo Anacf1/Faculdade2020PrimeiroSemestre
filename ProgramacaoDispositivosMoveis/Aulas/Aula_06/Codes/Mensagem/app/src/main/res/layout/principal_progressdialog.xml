@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".PrincipalProgressDialogActivity"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/botaoEnviarArquivo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:background="#E91E63"
+        android:text="Enviar Arquivo"></Button>
+
+    <Button
+        android:id="@+id/forExercicioDatePickerDialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:background="#FF5722"
+        android:text="Ir para Exercicio DatePicker Dialog"
+        android:onClick="irParaExercicioDatePickerDialog"></Button>
+
+</LinearLayout>

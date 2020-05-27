@@ -1,0 +1,62 @@
+Interfaces gráficas [https://androiddeveloperbrasil.wordpress.com/?s=layout]
+
+	1. Podemos implementar as Uis do usuário de forma declarativa e programática. 
+	
+		1.1 Na declarativa, fazemos uso do XML para declarar a aparência da interface.
+		1.2 Já na programática, implementamos através da linguagem Java.
+		
+		Devemos dar preferência sempre a forma declarativa, pois tende a ser mais 
+		fácil de entender, desenvolver e até mesmo manutenir.
+
+	2. A "View", que é a classe base de todo e qualquer componente gráfico, responsável 
+		por desenhar e controlar os eventos.
+	
+		2.1 Widgates (Views simples) - Componentes gráficos, para a criação de interface do usuário, 
+			como botões, caixas de texto e outros
+	
+		2.2 View Group - Classe base para gerenciadores de layout, funciona como um 
+			container para outras views. A classe ViewGroup tem como responsabilidade 
+			organizar os componentes de uma tela.
+
+			
+	3. Principais Gerenciadores de Layout: 
+		Gerenciadores de Layouts são classes Views e, podem conter tanto Views simples 
+		(Widgets) como layouts (ViewGroups).	
+		
+			3.1 AbsoluteLayout(deprecated)
+				Os componentes são posicionados na tela em função das coordenadas X e Y fornecidas, 
+				tendo como base o canto superior esquerdo. É menos flexível e mais difícil de manter 
+				que os demais gerenciadores. 
+				Esse gerenciador está obsoleto (Deprecated).
+
+			3.2 FrameLayout
+				O componente ocupa a tela inteira. A principal característica desse layout é organizar 
+				os componentes em forma de pilha, ou seja, se você criar uma aplicação apenas como 
+				FrameLayout os componentes vão ficar sobrepondo uns aos outros, a menos é claro que você 
+				divida a tela e coloque cada um na sua posição.				
+				
+			3.3 LinearLayout
+				Esse tipo de gerenciador de layout tem por característica a capacidade de alinhar 
+				verticalmente ou horizontalmente os componentes. Isso depende, obviamente, da orientação 
+				escolhida.
+				
+				android:orientation="horizontal" -> Padrão
+				android:orientation="vertical"
+				
+			3.4 RelativeLayout
+				O RelativeLayout organiza os componentes do layout de uma tela em relação uns aos outros.
+				Isso é uma grande vantagem deste gerenciador de layout, no que tange à flexibilidade de 
+				posicionamento dos componentes.
+				
+			3.5 TableLayout
+				Esse gerenciador de layout organiza seus componentes em colunas e linhas, ou seja, como 
+				uma tabela. 
+				Cada < tableRow >< /tableRow > corresponde a uma linha de nossa tabela. As colunas são 
+				criadas à medida que incluímos os componentes em cada linha.
+
+
+
+		
+	
+		
+	

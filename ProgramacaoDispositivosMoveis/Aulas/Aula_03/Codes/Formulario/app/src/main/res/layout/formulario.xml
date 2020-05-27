@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TableRow android:background="#4B9E96">>
+        <TextView
+            android:id="@+id/version"
+            android:layout_width="139sp"
+            android:text="@string/primeiraLinhaPrimeiraColuna"
+            android:textAlignment="center" />
+
+        <TextView
+            android:id="@+id/versionName"
+            android:layout_width="139sp"
+            android:text="@string/primeiraLinhaSegundaColuna"
+            android:textAlignment="center"/>
+
+        <TextView
+            android:id="@+id/apiLevel"
+            android:layout_width="139sp"
+            android:text="@string/primeiraLinhaTerceiraColuna"
+            android:textAlignment="center"/>
+    </TableRow>
+
+    <TableRow android:background="#D2ECE9">
+        <TextView
+            android:id="@+id/cinco"
+            android:layout_width="139sp"
+            android:text="@string/segundaLinhaPrimeiraColuna"
+            android:textAlignment="center" />
+
+        <TextView
+            android:id="@+id/lollipop"
+            android:layout_width="139sp"
+            android:text="@string/segundaLinhaSegundaColuna"
+            android:textAlignment="center"/>
+
+        <TextView
+            android:id="@+id/vinteEUm"
+            android:layout_width="139sp"
+            android:text="@string/segundaLinhaTerceiraColuna"
+            android:textAlignment="center"/>
+    </TableRow>
+
+    <TableRow android:background="#D2ECE9">
+        <TextView
+            android:id="@+id/quatroPontoQuatro"
+            android:layout_width="139sp"
+            android:text="@string/terceiraLinhaPrimeiraColuna"
+            android:textAlignment="center"/>
+
+        <TextView
+            android:id="@+id/kitkat"
+            android:layout_width="139sp"
+            android:text="@string/terceiraLinhaSegundaColuna"
+            android:textAlignment="center"/>
+
+        <TextView
+            android:id="@+id/dezenove"
+            android:layout_width="139sp"
+            android:text="@string/terceiraLinhaTerceiraColuna"
+            android:textAlignment="center"/>
+    </TableRow>
+
+    <TableRow android:background="#D2ECE9">
+        <TextView
+            android:id="@+id/quatroPontoTres"
+            android:layout_width="139sp"
+            android:text="@string/quartaLinhaPrimeiraColuna"
+            android:textAlignment="center"/>
+
+        <TextView
+            android:id="@+id/jellyBean"
+            android:layout_width="139sp"
+            android:text="@string/quartaLinhaSegundaColuna"
+            android:textAlignment="center"/>
+
+        <TextView
+            android:id="@+id/dezoito"
+            android:layout_width="139sp"
+            android:text="@string/quartaLinhaTerceiraColuna"
+            android:textAlignment="center"/>
+    </TableRow>
+
+    <include layout="@layout/layout" />
+</TableLayout>

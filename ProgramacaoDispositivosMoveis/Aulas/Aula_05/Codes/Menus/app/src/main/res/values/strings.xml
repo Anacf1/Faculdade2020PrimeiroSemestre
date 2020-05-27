@@ -1,0 +1,8 @@
+<resources>
+
+    <string name="app_name">Menus</string>
+    <string name="app_nameMenuExpandido">Menu Expandido</string>
+    <string name="app_nameMenuContext">Menu Context</string>
+    <string name="app_nameMenuBar">Menu Bar</string>
+    <string name="app_nameMenuPop">Menu Pop</string>
+</resources>

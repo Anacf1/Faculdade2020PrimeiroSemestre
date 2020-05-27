@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="Inteiro">27</integer>
+    
+    <integer-array name="ArrayInteiros">
+        <item>1</item>
+        <item>3</item>
+        <item>9</item>
+    </integer-array>
+
+</resources>
+
+

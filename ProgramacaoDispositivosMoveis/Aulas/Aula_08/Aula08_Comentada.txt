@@ -1,0 +1,189 @@
+Persistência de Dados em Android
+	Segurança de dados (Os dados serão privados?)
+	Acesso aos dados (Os dados podem ser acessados por outras aplicações/usuários?)
+	Espaço em disco (Qual a necessidade de espaço de armazenamento?)
+	
+1. Shared Preferences
+	Pequenas quantidades de dados
+	
+	Permite salvar e recuperar pares de chave/valor de tipos primitivos de dados 
+	(booleans, floats, ints, longs, e strings) em um arquivo denominado Arquivo de 
+	Preferências, pois associa um “nome” a uma determinada informação para que 
+	depois se possa recuperá-la através desse nome.
+	
+	1.1 getSharedPreferences() [obter preferências 'compartilhadas' (shared)]
+		• Se precisar acessar múltiplos arquivos de preferências em sua Activity;
+		• Tem como parâmetros o nome da Shared Preference e o modo de abertura.
+
+		Exemplo: 
+			   SharedPreferences sharedpreferences = 
+					  getSharedPreferences(MinhasPreferencias, 
+					  Context.MODE_PRIVATE);
+
+	1.2 getPreferences()
+		• Se precisar de um único arquivo de preferências para a Activity;
+		• Tem como parâmetro o modo de abertura;
+		• Não é definido o nome da Shared Preference por se tratar de um único arquivo.
+
+		Exemplo: 
+			   SharedPreferences sharedpreferences = 
+					getPreferences(Context.MODE_PRIVATE);
+					
+	1.3 Para salvar/alterar, usamos a classe SharedPreferences.Editor
+		Classe auxiliar que escreve no arquivo.
+
+		Editor editor = sharedpreferences.edit();
+		editor.putString("chave", "valor");
+		editor.commit();
+		
+2. Internal Storage
+	Possibilita que sejam salvos arquivos na memória interna do aparelho.
+
+	Essa memória interna é a mesma onde são armazenados os arquivos da Shared Preferences e que, quando 
+	o aplicativo é desinstalado, seus dados são apagados, pois são dados privados de seu aplicativo.
+	
+	2.1 Escrita
+	
+		2.1.1 'FileWriter' - Implementa a gravação de streams de caracteres.
+		
+		File arquivo = new File("meu_arquivo.txt")
+		FileWriter fileWriter = new FileWriter( arquivo);
+				Poderíamos, a partir daí, usar o método append() dessa classe
+				para efetuar a gravação, mas optamos por efetuar uma gravação 
+				bufferizada. Para isso, faremos uso da classe BufferdWriter 
+				que recebe como parâmetro um FileWriter.
+				
+		BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+				 bufferedWriter.write("Oswaldo Borges Peres");
+				 
+				 
+		2.1.2 'FileOutputStream' - Implementa a gravação de fluxos de bytes.
+		
+		FileOutputStream fOut = openFileOutput("arquivoTeste", MODE_APPEND);
+                           String str = "data";
+                           fOut.write(str.getBytes());
+                           fOut.close();
+						   
+	2.2 Leitura
+	
+		2.2.1 'FileReader' - Implementa a leitura de streams de caracteres.
+		
+			File arquivo = new File("meu_arquivo.txt")
+			FileReader fileReader = new FileReader( arquivo );
+			BufferedReader bufferedReader = new BufferedReader(fileReader);
+			String linha= null;
+			while(bufferedReader.ready() ){
+				   linha += bufferedReader.readLine();
+			}
+			
+		2.2.2 'FileInputStream' - Implementa a leitura de fluxos de bytes
+		
+			FileInputStream fileInputStream = openFileInput(“arquivoTeste);
+			int meucaracter;
+			String aux="";
+			while( (meucaracter = fileInputStream.read()) != -1){
+			   aux = aux + Character.toString((char) meucaracter);
+			}
+			fin.close();
+			
+3. 
+	O programa do usuário possui uma biblioteca SQLite compacta, que lida com todo o acesso 
+	ao banco de dados, eliminando a necessidade do usuário instalar ou configurar e manter 
+	informações de bancos de dados complexos.
+	
+	Outra característica do SQLite é que cada aplicação pode criar um ou mais bancos de dados 
+	que são visíveis somente para a aplicação que o criou.
+	
+	1. Como criar?
+		1.1 API Android para SQLite
+		1.2 Client do SQLite (SQLite Expert Personal ou SQLite Plus)
+		1.3 Aplicativo sqlite3 pelo console do emulador
+		
+	2. Classes
+		2.1 SQLite Databases - Classe SQLiteOpenHelper
+			É preciso implementar uma subclasse de SQLiteOpenHelper, que tem por responsabilidade 
+			criar o banco de dados, assim como gerenciar a versão do mesmo.			
+		
+		2.2 SQLite Databases - Classe SQLiteDatabase
+			Essa classe contém métodos a serem executados nas tabelas em SQLite, como criar, 
+			atualizar, excluir, selecionar etc.
+			
+			2.2.1 Manipulação dados
+				É importante lembrar que, para a manipulação de dados do banco, podemos efetuar 
+				através dos métodos execSQL() e rawQuery() usando SQL ou através dos métodos 
+				insert(), delete(), update() e query().
+				
+				sqliteDatabase.execSQL("INSERT INTO ALUNO (nome, idade) values ('Oswaldo', 50);",
+
+				Exemplo de rawSQL:
+
+				Cursor result = database.rawQuery("SELECT * FROM ALUNO", null);
+				
+		2.3 SQLite Databases - Classe ContentValues
+			Ela permite definir pares de chave-valor, onde a chave representa o identificador da 
+			coluna e o valor representa o conteúdo de uma coluna da tabela, como é demonstrado 
+			no código abaixo:
+
+			ContentValues contentValue = new ContentValues();
+			contentValue.put(DBHelper.NOME, name);
+			contentValue.put(DBHelper.EMAIL, desc);
+			database.insert(DBHelper.NOME_TABELA, null, contentValue);
+
+		2.4 SQLite Databases - Cursor
+			Se assemelha ao ResultSet do JDBC.
+			Ela é capaz de referenciar as linhas resultantes de uma consulta e, além disso, possui 
+			funções de navegação
+			
+			
+55555555555555555555555555555
+
+DbHelperActivity
+public DbHelperActivity(Context context) {
+        super(context, NOME_BANCO, null, VERSAO_BANCO);
+    }
+
+    @Override
+    public void onCreate(SQLiteDatabase db) {
+        db.execSQL(CREATE_TABLE);
+    }
+
+    @Override
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        db.execSQL("DROP TABLE IF EXISTS " + NOME_TABELA);
+        onCreate(db);
+    }
+
+5. Content Provider
+	Permite o compartilhamento de dados entre aplicações
+	
+	Possui um CONTENT_URI único, que identifica o conteúdo que vai gerenciar.
+		< prefixo>://< Autoridade>/< tipo_dados>/	
+		
+	
+	
+		
+
+	 Content Provider. Não podemos esquecer de que deve ser registrado no arquivo AndroidManifest.xml.
+			
+			
+			
+			
+			
+			
+			
+			
+
+		
+		
+				 
+				 
+			 
+			 
+		
+
+	
+	
+
+			
+	
+	

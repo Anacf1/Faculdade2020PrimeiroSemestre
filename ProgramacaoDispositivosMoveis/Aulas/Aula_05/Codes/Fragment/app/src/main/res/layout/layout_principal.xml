@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".PrincipalActivity"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/buttonPrincipal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="300dp"
+        android:text="Ver Fragment">
+    </Button>
+
+   <LinearLayout
+       android:id="@+id/linearLayoutFragment"
+       android:orientation="vertical"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"></LinearLayout>
+
+</LinearLayout>
