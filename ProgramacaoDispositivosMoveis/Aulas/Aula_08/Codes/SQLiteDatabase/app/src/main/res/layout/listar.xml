@@ -3,34 +3,34 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="#FAF5CE"
     android:orientation="vertical"
-    tools:context=".PrincipalSQLiteDatabaseActivity">
-
-    <ListView
-        android:id="@+id/lista"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"></ListView>
+    tools:context=".PrincipalActivity">
 
     <TextView
-        android:id="@+id/listaVazia"
+        android:id="@+id/idSQLiteObter"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Lista Vazia"></TextView>
+        android:hint="ID:"
+        android:inputType="text"></TextView>
 
-    <Button
+    <TextView
+        android:id="@+id/nomeSQLiteObter"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#E91E63"
-        android:onClick="forPrincipal_adicionar_sqlitedatabase"
-        android:text="Adicionar"></Button>
+        android:hint="Nome:"
+        android:inputType="text"></TextView>
 
-    <Button
-        android:id="@+id/irParaContentProvider"
+    <TextView
+        android:id="@+id/enderecoSQLiteObter"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#F44336"
-        android:onClick="irParaContentProvider"
-        android:text="Ir para Content Provider"></Button>
+        android:hint="Endereço:"></TextView>
 
+    <TextView
+        android:id="@+id/telefoneSQLiteObter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Telefone:"></TextView>
 
 </LinearLayout>

@@ -1,4 +1,4 @@
-package br.estacio.com.persistencia;
+package com.example.sqlite;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

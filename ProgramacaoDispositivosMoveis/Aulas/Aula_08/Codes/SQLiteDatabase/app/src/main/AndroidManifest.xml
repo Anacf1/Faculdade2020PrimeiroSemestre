@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="br.estacio.com.persistencia">
+    package="com.example.sqlite">
 
     <application
         android:allowBackup="true"
@@ -9,16 +9,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".PrincipalSharedPreferencesActivity"
-            android:label="@string/app_nameSharedPreferences">
+            android:name=".PrincipalActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".PrincipalInternalStorageActivity"
-            android:label="@string/app_nameInternalStorage"></activity>
-        <activity android:name=".PrincipalExternalStorageActivity"
-            android:label="@string/app_nameExternalStorage"></activity>
+        <activity android:name=".AdicionarActivity"></activity>
+        <activity android:name=".AtualizarActivity"></activity>
     </application>
 </manifest>

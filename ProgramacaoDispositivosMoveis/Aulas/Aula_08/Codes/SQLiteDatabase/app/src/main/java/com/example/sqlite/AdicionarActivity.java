@@ -1,4 +1,4 @@
-package br.estacio.com.persistencia;
+package com.example.sqlite;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,8 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.sql.SQLException;
 
-public class PrincipalAdicionarSQLiteDatabaseActivity extends AppCompatActivity {
-
+public class AdicionarActivity extends AppCompatActivity {
     EditText editTextNome;
     EditText editTextEndereco;
     EditText editTextTelefone;
@@ -23,7 +22,7 @@ public class PrincipalAdicionarSQLiteDatabaseActivity extends AppCompatActivity 
 
     protected void onCreate(Bundle bundle){
         super.onCreate(bundle);
-        setContentView(R.layout.principal_adicionar_sqllitedatabase);
+        setContentView(R.layout.adicionar);
 
         editTextNome = findViewById(R.id.nomeSQLiteCreate);
         editTextEndereco = findViewById(R.id.enderecoSQLiteCreate);
@@ -45,7 +44,7 @@ public class PrincipalAdicionarSQLiteDatabaseActivity extends AppCompatActivity 
 
         manager.incluir(nome, endereco, telefone);
 
-        Intent intent = new Intent(this, PrincipalSQLiteDatabaseActivity.class)
+        Intent intent = new Intent(this, PrincipalActivity.class)
                 .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
 
@@ -56,6 +55,4 @@ public class PrincipalAdicionarSQLiteDatabaseActivity extends AppCompatActivity 
         editTextEndereco.setText("");
         editTextTelefone.setText("");
     }
-
-
 }

@@ -1,4 +1,4 @@
-package br.estacio.com.persistencia;
+package com.example.sqlite;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,8 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.sql.SQLException;
 
-public class PrincipalAtualizarSQLiteDatabaseActivity extends AppCompatActivity {
-
+public class AtualizarActivity extends AppCompatActivity {
     EditText editTextNome;
     EditText editTextEndereco;
     EditText editTextTelefone;
@@ -24,7 +23,7 @@ public class PrincipalAtualizarSQLiteDatabaseActivity extends AppCompatActivity 
 
     protected  void onCreate(Bundle bundle){
         super.onCreate(bundle);
-        setContentView(R.layout.principal_atualizar_sqllitedatabase);
+        setContentView(R.layout.atualizar);
 
         editTextNome = findViewById(R.id.nomeSQLiteUpdate);
         editTextEndereco = findViewById(R.id.enderecoSQLiteUpdate);
@@ -64,9 +63,8 @@ public class PrincipalAtualizarSQLiteDatabaseActivity extends AppCompatActivity 
     }
 
     private void voltarTelaPrincipal(View view){
-        Intent intent = new Intent(this, PrincipalSQLiteDatabaseActivity.class)
+        Intent intent = new Intent(this, PrincipalActivity.class)
                 .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
     }
-
 }

@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    tools:context=".PrincipalAdicionarSQLiteDatabaseActivity">
+    tools:context=".AdicionarActivity">
 
     <EditText
         android:id="@+id/nomeSQLiteCreate"
@@ -46,7 +46,8 @@
                 android:layout_height="wrap_content"
                 android:background="#FFEB3B"
                 android:onClick="limparSQLite"
-                  android:text="Limpar"></Button>
+                android:text="Limpar"></Button>
         </TableRow>
     </TableLayout>
+
 </LinearLayout>

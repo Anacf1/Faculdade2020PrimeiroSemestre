@@ -13,8 +13,4 @@ public class PrincipalExternalStorageActivity extends AppCompatActivity {
         setContentView(R.layout.principal_externalstorage);
     }
 
-    public void irParaSQLiteDatabase(View view){
-        Intent intent = new Intent(this.getApplicationContext(), PrincipalSQLiteDatabaseActivity.class);
-        startActivity(intent);
-    }
 }

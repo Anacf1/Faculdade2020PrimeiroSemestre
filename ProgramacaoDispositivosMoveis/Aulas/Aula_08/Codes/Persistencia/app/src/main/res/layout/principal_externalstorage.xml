@@ -6,12 +6,4 @@
     android:orientation="vertical"
     tools:context=".PrincipalExternalStorageActivity">
 
-    <Button
-        android:id="@+id/irParaSQLiteDatabase"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#F44336"
-        android:onClick="irParaSQLiteDatabase"
-        android:text="Ir para SQLite Database"></Button>
-
 </LinearLayout>

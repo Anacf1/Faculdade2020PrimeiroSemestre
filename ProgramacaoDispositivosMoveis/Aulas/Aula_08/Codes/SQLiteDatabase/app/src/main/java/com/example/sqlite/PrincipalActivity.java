@@ -1,12 +1,8 @@
-package br.estacio.com.persistencia;
+package com.example.sqlite;
 
-import android.app.ListActivity;
-import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.os.DropBoxManager;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -18,8 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.sql.SQLException;
 
-public class PrincipalSQLiteDatabaseActivity extends AppCompatActivity {
-
+public class PrincipalActivity extends AppCompatActivity {
     ManagerSQLiteDatabase manager;
     ListView listView;
     SimpleCursorAdapter cursorAdapter;
@@ -38,7 +33,7 @@ public class PrincipalSQLiteDatabaseActivity extends AppCompatActivity {
 
     protected void onCreate(Bundle bundle){
         super.onCreate(bundle);
-        setContentView(R.layout.principal_sqllitedatabase);
+        setContentView(R.layout.principal);
 
         manager = new ManagerSQLiteDatabase(this);
         try {
@@ -52,44 +47,38 @@ public class PrincipalSQLiteDatabaseActivity extends AppCompatActivity {
         listView = findViewById(R.id.lista);
         listView.setEmptyView(findViewById(R.id.listaVazia));
 
-        cursorAdapter = new SimpleCursorAdapter(this, R.layout.principal_visualizar_sqllitedatabase, cursor,
+        cursorAdapter = new SimpleCursorAdapter(this, R.layout.listar, cursor,
                 contatoOrigem, contatoDestino, 0);
         cursorAdapter.notifyDataSetChanged();
 
         listView.setAdapter(cursorAdapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-           @Override
-           public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-               TextView textViewId = (TextView) findViewById(R.id.idSQLiteObter);
-               TextView textViewNome = (TextView) findViewById(R.id.nomeSQLiteObter);
-               TextView textViewEndereco = (TextView) findViewById(R.id.enderecoSQLiteObter);
-               TextView textViewTelefone = (TextView) findViewById(R.id.telefoneSQLiteObter);
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                TextView textViewId = (TextView) findViewById(R.id.idSQLiteObter);
+                TextView textViewNome = (TextView) findViewById(R.id.nomeSQLiteObter);
+                TextView textViewEndereco = (TextView) findViewById(R.id.enderecoSQLiteObter);
+                TextView textViewTelefone = (TextView) findViewById(R.id.telefoneSQLiteObter);
 
-               identificador = textViewId.getText().toString();
-               nome = textViewNome.getText().toString();
-               endereco= textViewEndereco.getText().toString();
-               telefone = textViewTelefone.getText().toString();
+                identificador = textViewId.getText().toString();
+                nome = textViewNome.getText().toString();
+                endereco= textViewEndereco.getText().toString();
+                telefone = textViewTelefone.getText().toString();
 
-               Intent intent = new Intent(getApplicationContext(), PrincipalAtualizarSQLiteDatabaseActivity.class);
+                Intent intent = new Intent(getApplicationContext(), AtualizarActivity.class);
                 intent.putExtra("ID", identificador);
                 intent.putExtra("NOME", nome);
                 intent.putExtra("ENDRECO", endereco);
                 intent.putExtra("TELEFONE", telefone);
                 startActivity(intent);
-               Toast.makeText(PrincipalSQLiteDatabaseActivity.this, "Atualizar", Toast.LENGTH_SHORT).show();
-           }
-       });
+                Toast.makeText(PrincipalActivity.this, "Atualizar", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     public void forPrincipal_adicionar_sqlitedatabase(View view){
-        Intent intent = new Intent(this, PrincipalAdicionarSQLiteDatabaseActivity.class);
+        Intent intent = new Intent(this, AdicionarActivity.class);
         startActivity(intent);
     }
-
-    public void irParaContentProvider(View view){
-        Intent intent = new Intent(this.getApplicationContext(), PrincipalContentProviderActivity.class);
-        startActivity(intent);
-    }
-
 
 }
