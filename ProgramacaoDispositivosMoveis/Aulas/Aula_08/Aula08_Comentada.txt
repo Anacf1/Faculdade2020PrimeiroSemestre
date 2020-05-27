@@ -163,7 +163,7 @@ public DbHelperActivity(Context context) {
 	
 		
 
-	 Content Provider. Não podemos esquecer de que deve ser registrado no arquivo AndroidManifest.xml.
+	
 			
 			
 			

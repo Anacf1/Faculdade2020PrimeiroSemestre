@@ -22,12 +22,7 @@
         </activity>
         <provider
             android:authorities="estacio.com.provider"
-            android:name="com.example.provider.MeuProvedor"
-            android:permission="@string/app_name"
-            android:writePermission="@string/app_name"
-            android:readPermission="@string/app_name"
-            android:forceUriPermissions="true"
-            android:grantUriPermissions="true">
+            android:name="com.example.provider.MeuProvedor">
         </provider>
     </application>
 </manifest>
