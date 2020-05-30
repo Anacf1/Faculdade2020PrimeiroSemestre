@@ -1,0 +1,31 @@
+Um aplicativo Android, por questões de segurança não pode se conectar 
+	a um banco de dados do servidor. Para tanto, usamos Web Service, 
+	[SOAP/REST] sendo de sua responsabilidade acessar o banco de dados, 
+	processar as informações e retornar os dados no formato XML ou JSON 
+	para o mobile/cliente ler os dados.
+	
+1. Web Service [SOAP/REST]
+	Um sistema de software projetado para suportar a interoperabilidade 
+	entre máquinas sobre a rede.	
+	
+	1.1 Vantagens
+		Reutilização de aplicações existentes
+		Uso de padrões abertos como, por exemplo, XML e SOAP
+		Interoperabilidade entre plataformas (Sistemas Operacionais) distintas
+		Redução no tempo do processo de desenvolvimento
+	
+
+2. WSDL (Web Services Description Language) versus REST (Representational State Transfer)
+
+3. implementation 'com.google.code.ksoap2-android:ksoap2-android:3.6.0'
+ implementation 'com.google.code.ksoap2-android:ksoap2-android:3.1.1'
+ 
+ org.ksoap2.serialization.SoapObject
+	https://translate.googleusercontent.com/translate_c?depth=1&hl=pt-PT&prev=search&rurl=translate.google.com&sl=en&sp=nmt4&u=https://stackoverflow.com/questions/18774355/adding-ksoap-dependency-to-gradle-project/21418577&usg=ALkJrhiYMieZIr2qxm6hcLcWmUwFkUswEg
+	https://stackoverflow.com/questions/29269965/cannot-import-ksoap2-to-android-studio
+	https://oss.sonatype.org/content/repositories/ksoap2-android-releases/
+	
+
+	
+	
+
