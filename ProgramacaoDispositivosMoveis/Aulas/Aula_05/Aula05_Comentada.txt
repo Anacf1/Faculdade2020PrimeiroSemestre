@@ -1,0 +1,208 @@
+1. Menu de opção e barra de opção [DEFAULT]
+
+	1.1  Ícone (icon menu):
+		Disponível parte inferior da tela;
+		Suporta ícones;
+		
+	1.2 Expandido (expanded menu):
+		Suporta mais de seis itens de menu;
+		Apresentado automaticamente na opção Mais (More) quando possuir 
+		mais de seis itens de menu;
+		
+	1.3 Menu de contexto
+		É exibido quando o usuário clica e segura, por mais de 2 segundos, um componente visual;
+		Não suporta atalhos, ícones ou até mesmo submenus;
+		Pode ser compartilhado entre diferentes Views.
+
+	1.4 Menu Pop-up
+		Abre quando tocamos no item de menu Options (Opções) ou em menu contextual;
+		Não suporta ícones;
+		Não suporta submenus aninhados;
+		
+	1.5 Action Bar
+	
+2. Podemos desenvolver menus Android através de:
+
+	2.1 Codificação Java [No codigo da Activity]
+	2.2 Codificação XML [Definido no arquivo .xml]
+	
+	@Override
+                public boolean onCreateOptionsMenu(Menu menu) {
+                    getMenuInflater().inflate(R.menu.menu_main, menu);
+                    return true;
+                }
+				
+		Quando o botão físico do menu for acionado, o método onCreateOptionsMenu (Menu menu) 
+		de nossa atividade é invocado e, em nosso exemplo, faz uso do MenuInflater para criar 
+		o menu definido no arquivo menu_main.xml.
+		
+		
+		
+	public  boolean onOptionsItemSelected(MenuItem menuItem){
+        switch (menuItem.getItemId()){
+            case R.id.item01:
+                Toast.makeText(getApplicationContext(), "Usado para dispositivos Android", Toast.LENGTH_LONG).show();
+                return true;
+				. . .
+				
+		*Ao clicar em uma das opções do menu, o onOptionsItemSelected(MenuItem item) entra em ação.		
+		
+		Toast toast = Toast.makeText(contexto, texto, duracao).show();
+			*Seu objetivo é exibir, por alguns segundos, uma pequena e breve mensagem de alerta para nosso 
+			usuário, sobre a tela vigente de nossa aplicação.
+			
+			*Contexto -> Contexto onde será exibida a mensagem
+			*Mensagem
+			*Duração
+				Toast.LENGTH_LONG - 4 segundos;
+				Toast.LENGTH_SHORT - 2 segundos.
+			
+			Por padrão, a mensagem foi exibida na parte inferior da tela.
+			Podemos alterar isso. Basta definirmos o método .setGravity().
+
+			Sua sintaxe é toast.setGravity(constante, valor_x, valor_y), onde:
+				Constante:
+				Valor_x: Deslocamento x da posição;
+				Valor_y: Deslocamento y da posição.
+				Ex:. toast.setGravity(Gravity.TOP|Gravity.LEFT, 0, 0);	
+	
+3. Exercicio Menu Expandido
+
+	3.1
+	@Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
+    }
+	
+	3.2
+	@Override
+    public  boolean onOptionsItemSelected(MenuItem menuItem){
+        switch (menuItem.getItemId()){
+            case R.id.item01:
+                Toast.makeText(getApplicationContext(), "Usado para dispositivos Android", Toast.LENGTH_LONG).show();
+                return true;
+            . . .
+            default:
+                return super.onOptionsItemSelected(menuItem);
+        }
+    }	
+		
+4. Exercicio Menu Context
+
+	4.1
+	@Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.layout_menucontext);
+		
+        Button button = findViewById(R.id.buttonMenuContext);
+        /*Manter pressionado o botão*/
+        button.setOnCreateContextMenuListener(this);			-> Para trabalhar com menu de contexto, precisamos manter 
+																	algum componente pressionado														
+        /*registerForContextMenu(button); -> Também funciona*/
+    }
+
+	4.2
+	@Override
+    public void onCreateContextMenu(ContextMenu contextMenu, View view, ContextMenu.ContextMenuInfo menuInfo){
+        getMenuInflater().inflate(R.menu.menu, contextMenu);
+    }
+
+	4.3
+    @Override
+    public boolean onContextItemSelected(MenuItem menuItem){
+        Toast.makeText(this, menuItem.getTitle(), Toast.LENGTH_LONG).show();
+        return true;
+    }
+	
+				
+5. Exercicio Menu Bar
+
+	5.1 A diferença entre o Menu Expandido e o Bar, está na delcaração do menu [app:showAsAction="always" . . . ]
+	<item
+        android:id="@+id/add"
+        app:showAsAction="always"
+        android:title="Adicionar">
+    </item>
+    <item
+        android:id="@+id/reset"
+        app:showAsAction="always|withText"
+        android:title="Voltar">
+    </item>
+	
+6. Atributos:
+		6.1 android:id - Esse id é exclusivo para cada item. É através dele que podemos 
+			identificar o item de menu;
+		6.2 android:title - É o texto título de nosso item de menu;
+		6.3 aandroid:icon - Define um ícone para o nosso menu. O valor aqui é a referência 
+			a um drawable;
+		6.4 android:showAsAction - Define a forma de exibição do componente.
+		
+7. Constantes que devemos empregar são:
+		7.1 Always
+			• O componente sempre fica visível;
+			• Recomendado para ações mais comuns do aplicativo.
+
+		7.2 Ifroom
+			• O componente é exibido na action bar, se existir espaço;
+			• Adequado para manter compatibilidade com diversos tipos de dispositivos e também 
+				com telas na vertical ou horizontal.
+	
+		7.3 Withtext
+			• O componente exibe o seu título ao lado do ícone, caso tenha espaço disponível.
+			
+		7.4 Never
+			• Não exibe o componente na action bar.
+			
+		7.5 CollapseActionView
+			• Quando a view é grande, deve ser contraída para exibir apenas um botão.
+			
+		***Podemos combinar as constantes com separadores, como, por exemplo, ifRoom|withText.
+	
+8. Fragmento 
+		Bastante similar a uma Activity, um fragmento (fragment) consiste em uma pequena porção de 
+		Activty, que permite um projeto mais modular.
+		
+		*É uma boa prática de desenvolvimento em Android sempre encapsular o código de uma activity 
+		em um fragment. Isso permite a reutilização deste código em outro contexto.
+		
+	8.1 Caracteristicas
+	
+	8.2 Ciclo de vida de Fragment
+		Fragment é parte de uma activity hospedeira, que orienta o seu ciclo de vida.
+		
+		Embora o Fragment possua seu próprio ciclo de vida, que é bastante similar ao de uma activity, 
+		este não é uma entidade independente.
+		
+		8.2.1 Métodos do ciclo de vida
+		
+	8.3 Fragments e suas subclasses
+		Para implementar um fragment é preciso estender uma das classes abaixo:
+
+		8.3.1 Fragments - Comportamento específico dentro de uma Activity (Ex: parte de interface ou operação);
+		8.3.2 DialogFragment - Exibir uma janela por cima da janela de sua Activity;
+		8.3.3 ListFragment - Exibe uma lista de itens de uma fonte de dados;
+		8.3.4 PreferenceFragment - Armazena e acessa dados de configuração de uma aplicação;
+		8.3.5 WebViewFragment - Exibe WebView.
+		
+	8.4 API de Fragments
+
+		8.4.1 Fragment(android.app.Fragment)
+		• Classe que o fragment deve estender;
+		• É necessário sobrescrever o método onCreate (inflater, container, bundle) para criar a view.
+
+		8.4.2 Fragment(android.app.Fragment)
+		• Classe que gerencia os fragments pela API;
+		• Possui métodos findFragmentById(id) e findFragmentByTag(tag) utilizados para encontrar os fragments 
+			no layout, de forma similar ao método findViewById(id) que uma activity utiliza para buscar uma 
+			view.
+
+		8.4.3 Fragment(android.app.FragmentTransaction)
+		• Classe utilizada para adicionar, remover ou substituir os fragments dinamicamente no layout.
+
+				
+	
+	
+		
+		

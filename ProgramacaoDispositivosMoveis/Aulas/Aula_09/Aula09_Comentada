@@ -25,6 +25,10 @@ Um aplicativo Android, por questões de segurança não pode se conectar
 	https://stackoverflow.com/questions/29269965/cannot-import-ksoap2-to-android-studio
 	https://oss.sonatype.org/content/repositories/ksoap2-android-releases/
 	
+	repositories { 
+		maven { url 'https://oss.sonatype.org/content/repositories/ksoap2-android-releases/' } 
+	}
+	
 
 	
 	

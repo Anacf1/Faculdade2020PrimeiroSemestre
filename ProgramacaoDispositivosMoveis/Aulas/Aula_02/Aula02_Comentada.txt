@@ -1,0 +1,142 @@
+1. Classe Activity
+2. Pilha de execução de uma aplicação Android
+3. Estados de uma Activity e seu ciclo de vida. Também apresenta a Classe Intent e Intent Filters, bem como desenvolvimento de um pequeno aplicativo.
+
+Principais arquivos:
+	Arquivo AndroidManifest.xml
+		Um dos principais arquivos da aplicação. 
+		É nele que são descritas informações essenciais à execução de seu projeto, ex:
+			Nome do pacote utilizado;
+			Nome das Activities;
+			Permissões que o aplicativo possui;
+			Versão mínima da API Android.
+			
+		<application
+			android:allowBackup="true"
+			android:icon="@mipmap/ic_launcher"
+			android:label="@string/app_name"
+			android:roundIcon="@mipmap/ic_launcher_round"
+			android:supportsRtl="true"
+			android:theme="@style/AppTheme">
+			<activity
+				android:name=".MainActivity"
+				android:label="@string/app_name"
+				android:theme="@style/AppTheme.NoActionBar">
+				<intent-filter>
+					<action android:name="android.intent.action.MAIN" />
+					<category android:name="android.intent.category.LAUNCHER" />
+				</intent-filter>
+			</activity>
+		</application>		
+			
+	Arquivo Activity_Main.xml [src/main/res/layout]
+		Nesse arquivo são definidas as configurações para criação do layout da tela, ex:
+		
+		<TextView
+			android:id="@+id/textView"
+			android:layout_width="296dp"
+			android:layout_height="55dp"
+			android:fontFamily="monospace"
+			android:text="Hello World Android!"
+			android:textAlignment="center"
+			android:textColor="#F44336"
+			android:textSize="24sp"
+			app:layout_anchor="@+id/include"
+			app:layout_anchorGravity="center" />
+			
+	Arquivo Strings.xml [src-main/res/values]
+		Esse arquivo centraliza as mensagens de seu aplicativo. Facilita muito, inclusive, 
+		a internacionalização do aplicativo.
+		
+		<resources>
+			<string name="app_name">MeuPrimeiroApp</string>
+			<string name="action_settings">Settings</string>
+			<!-- Strings used for fragments for navigation -->
+			<string name="first_fragment_label">First Fragment</string>
+			<string name="second_fragment_label">Second Fragment</string>
+			<string name="next">Next</string>
+			<string name="previous">Previous</string>
+
+			<string name="hello_first_fragment">Hello first fragment</string>
+			<string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+		</resources>
+
+		
+	Classe R
+		Esse arquivo possui as referências para acessar os recursos de seu projeto. É gerada 
+		automaticamente pelo compilador. É recomendável que essa classe não seja alterada 
+		manualmente.
+
+
+Activity [Atividade][src/main/java/]
+	Activity é responsável por construir uma tela em Android, bem como tratar os eventos gerados 
+	por ela. Toda aplicação Android deve implementar ao menos um Activity, podendo chamar outras 
+	Activities.
+	
+	O Android é responsável por gerenciar o ciclo de vida dos Activities. Para tanto, faz uso do 
+	conceito de pilha, chamada de “Activity Stacks” (pilha de atividades). Toda Activity ao ser 
+	executada é inserida no topo dessa pilha. A Activity anterior é parada e move-se para baixo
+	
+	O Android pode até mesmo encerrar Activities, se precisar de recursos. Neste caso, ele verifica 
+	a pilha de atividade para determinar a prioridade das atividades e quais podem ser fechadas
+	
+	outra atividade vem na frente da atividade
+	a atividade vem ao primeiro plano
+	
+	entire lifetime - vida inteira
+	foreground lifetime - vida em primeiro plano
+	
+Intent
+	Intent possibilita realizar a ligação, em tempo de execução, de componentes separados por ex, 
+	chamar Activities diferentes
+	
+	A Intent envia ao sistema operacional o equivalente a uma mensagem (broadcast). Este receberá 
+	a chamada e, dependendo do conteúdo, tomará as providências necessárias
+	
+	Uma Intent é basicamente um conjunto de dados que possui informações de interesse para os 
+	componentes que a recebem e também para o Android. Deve conter:
+		Nome do componente -> Nome do componente que trará a Intent
+		Ação -> Ação que deseja executar
+		
+		Dados -> URI e o MiME Type dos dados adicionados à Intent
+		Categoria -> Informações adicionais sobre o componente que deve tratar a Intent
+		Extras -> Pares chave-valor de informações adicionais para o componente que 
+			tratará a Intent
+		Flags -> Instruções para o Android de como lançar uma Activity ou como trata-la
+			depois de lançada
+			
+	Tipos:
+		Implicita
+			Como determina o componente pelo nome, é usada para passagem de mensagens no 
+				proprio app
+				
+		Explicita
+			É enviada ao sistema operacional e pode ser tratada por componentes em outros
+			apps. Nesse caso, a definição de qeum tratará a Intent é feita. O conteudo do
+			objeto Intent é comparado com alguns filtros chamados "Intent Filters"
+			
+	Intent Filter
+		Basicamente, um Intent Filter informa ao sistema quais Intents um certo componente pode 
+		tratar. Um componente pode ter uma ou mais Intent Filters
+		
+	Atenção!
+		Com relação ao tipo implícito, as Intents serão entregues se um dos filtros atender aos 
+			critérios da Intent
+			
+		Já no caso da explícita, será entregue diretamente ao componente designado, não importando 
+			o filtro, pois nem chega a consultá-lo.	
+		
+		
+
+	
+	
+	
+	
+
+	
+
+			
+	
+
+		
+		

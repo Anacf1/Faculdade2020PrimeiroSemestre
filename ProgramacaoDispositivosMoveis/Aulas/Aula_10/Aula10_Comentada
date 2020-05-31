@@ -1,0 +1,35 @@
+1. Google Maps
+	1.1 APIs
+		1. API v1
+			Implementada pela classe MapView.
+			Um mapa de cada vez por tela.
+		2. API v2 
+			MapFragments.
+			Ganho no desempenho, esta foi criada para 
+				suportar visualizações 2D e 3D.
+				
+	1.2 Autenticação	
+		Para que nossos mapas funcionem, precisamos criar uma 
+		chave de autenticação no serviço Google
+			A chave deve ser configurada no Manifest.xml
+	
+	1.3 Manifest.xml	
+		1.3.1 Permissões de acesso a internet
+		1.3.2 Configurar a chave de acesso
+		1.3.3 Configurar a versão do Google Play Service
+		
+	1.4 Dependência
+			Adicionar Google Play Services 
+			no app/buid.gradle
+			
+2. Localização 
+	
+			
+	
+	
+	
+
+			
+	
+	
+	
